@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRpc.RealMyService", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRpc.ProxyMyService", "SharpRpc.ProxyMyService\SharpRpc.ProxyMyService.csproj", "{B705F2F9-B44C-4612-8A1C-111761900FBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseConsole", "ParseConsole\ParseConsole.csproj", "{9993381D-A292-4358-A713-8288FA684937}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{5F1E7147-37D7-4CE5-A6E7-74AE3A48B961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F1E7147-37D7-4CE5-A6E7-74AE3A48B961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F1E7147-37D7-4CE5-A6E7-74AE3A48B961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9993381D-A292-4358-A713-8288FA684937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9993381D-A292-4358-A713-8288FA684937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9993381D-A292-4358-A713-8288FA684937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9993381D-A292-4358-A713-8288FA684937}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
