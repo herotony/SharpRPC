@@ -30,7 +30,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,13 +45,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpRpc.TestCommon\SharpRpc.TestCommon.csproj">
-      <Project>{e43a74ee-f65a-4ad7-b690-e08f9be74ac4}</Project>
-      <Name>SharpRpc.TestCommon</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SharpRpc\SharpRpc.csproj">
-      <Project>{2c63c96e-39cb-4812-a105-866bbea4d6b3}</Project>
+      <Project>{2C63C96E-39CB-4812-A105-866BBEA4D6B3}</Project>
       <Name>SharpRpc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpRpc.ProxyMyService\SharpRpc.ProxyMyService.csproj">
+      <Project>{B705F2F9-B44C-4612-8A1C-111761900FBB}</Project>
+      <Name>SharpRpc.ProxyMyService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

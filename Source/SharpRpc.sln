@@ -11,17 +11,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRpc.TestCommon", "Shar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRpc.TestClient", "SharpRpc.TestClient\SharpRpc.TestClient.csproj", "{5F1E7147-37D7-4CE5-A6E7-74AE3A48B961}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRpc.RealMyService", "SharpRpc.RealMyService\SharpRpc.RealMyService.csproj", "{01663FD4-248A-4432-A528-FB0FAFFA3494}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpRpc.ProxyMyService", "SharpRpc.ProxyMyService\SharpRpc.ProxyMyService.csproj", "{B705F2F9-B44C-4612-8A1C-111761900FBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01663FD4-248A-4432-A528-FB0FAFFA3494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01663FD4-248A-4432-A528-FB0FAFFA3494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01663FD4-248A-4432-A528-FB0FAFFA3494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01663FD4-248A-4432-A528-FB0FAFFA3494}.Release|Any CPU.Build.0 = Release|Any CPU
 		{01C4DB73-0323-463B-B3E2-AEBD656BAE1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{01C4DB73-0323-463B-B3E2-AEBD656BAE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01C4DB73-0323-463B-B3E2-AEBD656BAE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -30,14 +33,26 @@ Global
 		{190CA4AC-7A11-4923-A1DB-6CDA845B50C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{190CA4AC-7A11-4923-A1DB-6CDA845B50C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{190CA4AC-7A11-4923-A1DB-6CDA845B50C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F1E7147-37D7-4CE5-A6E7-74AE3A48B961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F1E7147-37D7-4CE5-A6E7-74AE3A48B961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F1E7147-37D7-4CE5-A6E7-74AE3A48B961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F1E7147-37D7-4CE5-A6E7-74AE3A48B961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = SharpRpc.TestHost\SharpRpc.TestHost.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
