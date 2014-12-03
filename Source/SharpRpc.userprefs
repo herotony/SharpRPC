@@ -1,13 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc.TestHost\Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ParseConsole\ExtensionType.cs">
     <Files>
-      <File FileName="SharpRpc.TestHost\Program.cs" Line="18" Column="18" />
-      <File FileName="SharpRpc.TestClient\Program.cs" Line="30" Column="30" />
-      <File FileName="SharpRpc.TestCommon\IMyService.cs" Line="6" Column="6" />
-      <File FileName="SharpRpc.TestCommon\MyService.cs" Line="6" Column="6" />
-      <File FileName="SharpRpc.RealMyService\MyService.cs" Line="4" Column="4" />
-      <File FileName="SharpRpc.ProxyMyService\IMyService.cs" Line="21" Column="21" />
+      <File FileName="ParseConsole\ExtensionType.cs" Line="4" Column="4" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
