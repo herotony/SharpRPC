@@ -24,7 +24,8 @@ THE SOFTWARE.
 
 using System;
 using System.Text;
-using SharpRpc.TestCommon;
+//using SharpRpc.TestCommon;
+using SharpRpc.ProxyMyService;
 using SharpRpc.Topology;
 
 namespace SharpRpc.TestClient
