@@ -37,4 +37,7 @@
     <Compile Include="ExtensionType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="分析日志记录.txt" />
+  </ItemGroup>
 </Project>
