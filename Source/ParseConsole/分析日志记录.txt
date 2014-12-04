@@ -1,3 +1,32 @@
-﻿2014-12-04：
+﻿
+结合www.dotnetperls.com分析相关源码
+
+2014-12-04：
 
 目的：搞清楚客户端调用到发送的内部机制！
+
+ProxyFactory：动态创建T类型的dynamic assembly，只能run不能保存
+
+               CreateProxyClass中创建的T 在其构造函数中创建了相关的远程请求接口实例，而该请求接口OutgoingRequestProcesser对应的instance何时传入需要继续看代码
+
+			   return (p, s, t) => (T) Activator.CreateInstance(proxyClass, p, s, t, codecContainer);
+
+			   用p,s,t,codeContainer构造函数构造类型T的instance,p:requestProcesser;s:scope[method];t:timeOutSetting;codecContainer:代码解码器
+
+			   而这个T的构造函数在Proxy的CreateProxyClass->CreateConstructor中动态创建出来了
+
+			   亦即：CreateProxyClass创建出T类型的dynamic dll，然后再实例化出相应的instance返回给客户端使用。
+
+
+ProxyContainer：绑定OutgoingRequestProcesser和proxyFactory实例来动态创建T类型的proxy instance。
+
+IOutgoingRequestProcessor：只是设定了发送数据到远程的接口，但接口中关键的输入参数byte[]中的数据如何进行序列化等格式化操作打包这一块目前看不到入口点。
+			   			   目前byte[]数据如何形成，只能寄希望于codecContainer了，否则，对于复杂类型参数如何序列化将是个问题
+              
+
+说明：今天确定了该框架不支持复杂类型的传送，那么只能自己再调用此框架前提前序列化并固定采用byte[]参数类型，但目前该框架在多线程模式下测试未通过，待明天继续跟踪确定原因。
+
+2014-12-05：
+
+目的：确认该rpc框架的多线程模式下异常的原因！进而在下周考虑用tcp替代目前的http通讯机制即可。
+             

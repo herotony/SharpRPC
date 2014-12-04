@@ -23,10 +23,15 @@ THE SOFTWARE.
 #endregion
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Text;
 //using SharpRpc.TestCommon;
 using SharpRpc.ProxyMyService;
 using SharpRpc.Topology;
+using Sharp.Rpc.CommonObject;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace SharpRpc.TestClient
 {
@@ -34,75 +39,158 @@ namespace SharpRpc.TestClient
     {
         static void Main(string[] args)
         {
-            var topologyLoader = new TopologyLoader("../Topology/topology.txt", Encoding.UTF8, new TopologyParser());
-            var client = new RpcClient(topologyLoader, new TimeoutSettings(500));
+			//TestMyService();
+			try{
+			
+					TestComplex ();
 
-            var myService = client.GetService<IMyService>();
+			}catch(Exception e){
 
-            string line;
-            while ((line = Console.ReadLine()) != "exit")
-            {
-                switch (line)
-                {
-                    case "greet":
-                    {
-                        Console.Write("Enter a name: ");
-                        var name = Console.ReadLine();
-                        var greeting = myService.Greet(name);
-                        Console.WriteLine(greeting);
-                    }
-                    break;
-                    case "add":
-                    {
-                        Console.Write("Enter a: ");
-                        var a = int.Parse(Console.ReadLine());
-                        Console.Write("Enter b: ");
-                        var b = int.Parse(Console.ReadLine());
-                        var sum = myService.Add(a, b);
-                        Console.WriteLine(sum);
-                    }
-                    break;
-                    case "aadd":
-                    {
-                        Console.Write("Enter a: ");
-                        var a = int.Parse(Console.ReadLine());
-                        Console.Write("Enter b: ");
-                        var b = int.Parse(Console.ReadLine());
-                        var sum = myService.AddAsync(a, b).Result;
-                        Console.WriteLine(sum);
-                    }
-                    break;
-                    case "throw":
-                    {
-                        try
-                        {
-                            myService.Throw();
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex);
-                        }
-                    }
-                    break;
-                    case "sleep":
-                    {
-                        try
-                        {
-                            myService.SleepOneSecond();
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex);
-                        }
-                    }
-                    break;
-                    default:
-                    {
-                        Console.WriteLine("Unkown command");    
-                    }
-                    break;
-                }
-            }
+				string message = string.Format ("desc:{0}\r\nstackTrace:{1}", e.Message, e.StackTrace);
+
+			}
+
         }
+
+		private static void TestComplex(){
+
+			var topologyLoader = new TopologyLoader("../Topology/topology.txt", Encoding.UTF8, new TopologyParser());
+			var client = new RpcClient(topologyLoader, new TimeoutSettings(500));
+
+			var complexService = client.GetService<IComplexService> ();
+
+			for (int i = 0; i < 2; i++) {
+			
+				Task.Factory.StartNew (() => {
+				
+					Console.WriteLine(Task.CurrentId);
+					byte[] result = complexService.GetStudentList (new byte[1]);
+				});
+			}
+
+			Stopwatch sw = new Stopwatch ();
+
+			sw.Start ();
+
+			for (int m = 0; m < 2; m++) {
+
+				byte[] result = complexService.GetStudentList (new byte[1]);
+
+				List<Student> list = Google.ProtoBuf.Serializer.Deserialize<List<Student>> (new MemoryStream (result));
+
+				for (int i = 0; i < list.Count; i++) {
+
+					Console.WriteLine (list [i].ToString ());
+					for (int j = 0; j < list [i].Address.Count; j++)
+						Console.WriteLine (list [i].Address [j]);
+				}
+			}
+
+//			Task[] tasks = new Task[2];
+//
+//			for (int k = 0; k < tasks.Length; k++) {
+//
+//				tasks[k]=new Task (() => {
+//
+//
+//
+//					try{
+//
+//
+//
+//					}catch{}
+//
+//
+//				});
+//
+//			}
+//
+//			for (int k = 0; k < tasks.Length; k++)
+//				tasks [k].Start ();
+				
+
+			//Task.WaitAll (tasks);
+
+			Console.WriteLine (string.Format ("耗时:{0}毫秒", sw.ElapsedMilliseconds));
+				
+			Console.ReadKey ();
+
+		}
+
+
+
+		private static void TestMyService(){
+
+			var topologyLoader = new TopologyLoader("../Topology/topology.txt", Encoding.UTF8, new TopologyParser());
+			var client = new RpcClient(topologyLoader, new TimeoutSettings(500));
+
+			var myService = client.GetService<IMyService>();
+
+			string line;
+			while ((line = Console.ReadLine()) != "exit")
+			{
+				switch (line)
+				{
+				case "greet":
+					{
+						Console.Write("Enter a name: ");
+						var name = Console.ReadLine();
+						var greeting = myService.Greet(name);
+						Console.WriteLine(greeting);
+					}
+					break;
+				case "add":
+					{
+						Console.Write("Enter a: ");
+						var a = int.Parse(Console.ReadLine());
+						Console.Write("Enter b: ");
+						var b = int.Parse(Console.ReadLine());
+						var sum = myService.Add(a, b);
+						Console.WriteLine(sum);
+					}
+					break;
+				case "aadd":
+					{
+						Console.Write("Enter a: ");
+						var a = int.Parse(Console.ReadLine());
+						Console.Write("Enter b: ");
+						var b = int.Parse(Console.ReadLine());
+						var sum = myService.AddAsync(a, b).Result;
+						Console.WriteLine(sum);
+					}
+					break;
+				case "throw":
+					{
+						try
+						{
+							myService.Throw();
+						}
+						catch (Exception ex)
+						{
+							Console.WriteLine(ex);
+						}
+					}
+					break;
+				case "sleep":
+					{
+						try
+						{
+							myService.SleepOneSecond();
+						}
+						catch (Exception ex)
+						{
+							Console.WriteLine(ex);
+						}
+					}
+					break;
+				default:
+					{
+						Console.WriteLine("Unkown command");    
+					}
+					break;
+				}
+			}
+
+		}
     }
 }

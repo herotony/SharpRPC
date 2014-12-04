@@ -53,6 +53,14 @@
       <Project>{B705F2F9-B44C-4612-8A1C-111761900FBB}</Project>
       <Name>SharpRpc.ProxyMyService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sharp.Rpc.CommonObject\Sharp.Rpc.CommonObject.csproj">
+      <Project>{A9D672A8-2880-48C2-AB22-074BD747D5B7}</Project>
+      <Name>Sharp.Rpc.CommonObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProtocolBuffer\ProtocolBuffer.csproj">
+      <Project>{23DE6551-EF92-4053-9A47-54B0F5711E86}</Project>
+      <Name>ProtocolBuffer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

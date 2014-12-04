@@ -42,11 +42,21 @@
     <Compile Include="IMyService.cs" />
     <Compile Include="MyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IComplexService.cs" />
+    <Compile Include="ComplexService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpRpc\SharpRpc.csproj">
       <Project>{2C63C96E-39CB-4812-A105-866BBEA4D6B3}</Project>
       <Name>SharpRpc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sharp.Rpc.CommonObject\Sharp.Rpc.CommonObject.csproj">
+      <Project>{A9D672A8-2880-48C2-AB22-074BD747D5B7}</Project>
+      <Name>Sharp.Rpc.CommonObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProtocolBuffer\ProtocolBuffer.csproj">
+      <Project>{23DE6551-EF92-4053-9A47-54B0F5711E86}</Project>
+      <Name>ProtocolBuffer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,11 +3,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="ParseConsole\分析日志记录.txt">
     <Files>
       <File FileName="SharpRpc.TestClient\Program.cs" Line="1" Column="1" />
-      <File FileName="ParseConsole\ExtensionType.cs" Line="1" Column="1" />
-      <File FileName="SharpRpc.RealMyService\MyService.cs" Line="1" Column="1" />
-      <File FileName="SharpRpc.TestCommon\MyService.cs" Line="1" Column="1" />
-      <File FileName="SharpRpc.TestHost\Program.cs" Line="1" Column="1" />
-      <File FileName="ParseConsole\分析日志记录.txt" Line="4" Column="4" />
+      <File FileName="d:\HeroTonyGitHub\SharpRPC\Source\SharpRpc\Codecs\ManualCodec.cs" Line="1" Column="1" />
+      <File FileName="ParseConsole\分析日志记录.txt" Line="52" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
