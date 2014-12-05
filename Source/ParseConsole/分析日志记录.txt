@@ -29,4 +29,45 @@ IOutgoingRequestProcessor：只是设定了发送数据到远程的接口，但�
 2014-12-05：
 
 目的：确认该rpc框架的多线程模式下异常的原因！进而在下周考虑用tcp替代目前的http通讯机制即可。
+
+      经测试，开启多线程模式的运行场景是，在远程调用加锁的情况下还是需要等待所有的远程调用都结束了，貌似才真正发起请求，这尼玛完全不科学啊...得查相关源码，但在多进程情况下貌似没问题！
+	  通过ThreadStart启动线程是没问题的，但内存开销不可控，但是采用ThreadPool or Task则彻底废了，再查其实现的客户端请求引擎，已经是采用异步方式了，那么没必要再多此一举，直接认为所有的循环就是开了线程了。
+	  但同样对于客户端而言，这个异步只是可以控制超时，客户端调用还是同步方式，必须自行写个引擎来解决这事或者测试在IIS下是否有问题，貌似应该没问题才对！
+
+	  ThreadPool.QueueUserWorkItem(new WaitCallback(UserRunFunction),ParamObject);
+
+	  写完这句，即将用户的带object类型参数ParamObject的方法UserRunFunction(object)置入了UserWorkItem队列，一旦线程池有空闲线程，会自动通过回调WaitCallback实例来执行用户的方法。
+
+	  yield return T 返回IEnumerable<T>集合中一个元素，多次在循环中调用yield return则返回一个完整的IEnumerable<T>集合。
+
+	  public static System.Collections.Generic.IEnumerable<int> Power(int number, int exponent)
+      {
+        int result = 1;
+
+        for (int i = 0; i < exponent; i++)
+        {
+            result = result * number;
+            yield return result; //相当于返回一个result集合
+        }
+      }
+
+      public class Galaxies
+      {
+
+        public System.Collections.Generic.IEnumerable<Galaxy> NextGalaxy
+        {
+            get
+            {
+                yield return new Galaxy { Name = "Tadpole", MegaLightYears = 400 }; //效果同上yield return T instance
+                yield return new Galaxy { Name = "Pinwheel", MegaLightYears = 25 };
+                yield return new Galaxy { Name = "Milky Way", MegaLightYears = 0 };
+                yield return new Galaxy { Name = "Andromeda", MegaLightYears = 3 };
+            }
+        }
+
+      }
+
+2014-12-08：
+
+目的：准备排查TreadPool或Task不成功的深层次原因。细细研究一下相关的async/await的使用
              

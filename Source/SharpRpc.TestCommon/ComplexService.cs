@@ -68,7 +68,7 @@ namespace SharpRpc.TestCommon
 
 			Console.WriteLine ("over");
 
-			Console.WriteLine (string.Format ("buff.lenght:{0}", buff.Length));
+			Console.WriteLine (string.Format ("buff.lenght:{0} on time:{1}", buff.Length,DateTime.Now));
 
 			return buff;
 		}

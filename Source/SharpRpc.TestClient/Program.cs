@@ -32,22 +32,33 @@ using SharpRpc.Topology;
 using Sharp.Rpc.CommonObject;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Threading;
+
+using log4net;
 
 namespace SharpRpc.TestClient
 {
     class Program
     {
+		private static ILog logProgram = LogManager.GetLogger (typeof(Program));
+
+
         static void Main(string[] args)
         {
 			//TestMyService();
 			try{
+
+				logProgram.Info("start");
 			
-					TestComplex ();
+					TestComplex2 ();
+
+				logProgram.Info("end");
 
 			}catch(Exception e){
 
 				string message = string.Format ("desc:{0}\r\nstackTrace:{1}", e.Message, e.StackTrace);
 
+				logProgram.Error (message);
 			}
 
         }
@@ -57,34 +68,63 @@ namespace SharpRpc.TestClient
 			var topologyLoader = new TopologyLoader("../Topology/topology.txt", Encoding.UTF8, new TopologyParser());
 			var client = new RpcClient(topologyLoader, new TimeoutSettings(500));
 
-			var complexService = client.GetService<IComplexService> ();
-
-			for (int i = 0; i < 2; i++) {
-			
-				Task.Factory.StartNew (() => {
-				
-					Console.WriteLine(Task.CurrentId);
-					byte[] result = complexService.GetStudentList (new byte[1]);
-				});
-			}
-
 			Stopwatch sw = new Stopwatch ();
 
 			sw.Start ();
 
-			for (int m = 0; m < 2; m++) {
+			var complexService = client.GetService<IComplexService> ();
 
-				byte[] result = complexService.GetStudentList (new byte[1]);
 
-				List<Student> list = Google.ProtoBuf.Serializer.Deserialize<List<Student>> (new MemoryStream (result));
+			Console.WriteLine (string.Format ("init proxy instance consume:{0} ms", sw.ElapsedMilliseconds));
 
-				for (int i = 0; i < list.Count; i++) {
+			object lockobj = new object ();
 
-					Console.WriteLine (list [i].ToString ());
-					for (int j = 0; j < list [i].Address.Count; j++)
-						Console.WriteLine (list [i].Address [j]);
-				}
+
+			sw.Restart ();
+			int totalCount = 0;
+
+			for (int i = 0; i < 100; i++) {
+			
+				Task.Factory.StartNew (() => {
+				
+					int k = i;
+
+					logProgram.InfoFormat("k={0}",k);
+
+					logProgram.Info(Task.CurrentId);
+
+					byte[] result = null;
+
+					lock(lockobj){
+
+						
+						result = complexService.GetStudentList (new byte[1]);
+					}
+
+					List<Student> list = Google.ProtoBuf.Serializer.Deserialize<List<Student>> (new MemoryStream (result));
+
+					logProgram.Info(string.Format("list:{0} on {1}  with i=={2}",list.Count,Task.CurrentId,k));
+					totalCount++;
+				});
 			}
+
+
+
+
+
+//			for (int m = 0; m < 2; m++) {
+//
+//				byte[] result = complexService.GetStudentList (new byte[1]);
+//
+//				List<Student> list = Google.ProtoBuf.Serializer.Deserialize<List<Student>> (new MemoryStream (result));
+//
+//				for (int i = 0; i < list.Count; i++) {
+//
+//					Console.WriteLine (list [i].ToString ());
+//					for (int j = 0; j < list [i].Address.Count; j++)
+//						Console.WriteLine (list [i].Address [j]);
+//				}
+//			}
 
 //			Task[] tasks = new Task[2];
 //
@@ -111,13 +151,87 @@ namespace SharpRpc.TestClient
 
 			//Task.WaitAll (tasks);
 
-			Console.WriteLine (string.Format ("耗时:{0}毫秒", sw.ElapsedMilliseconds));
+			logProgram.Info (string.Format ("总耗时:{0}毫秒", sw.ElapsedMilliseconds));
 				
+			Console.ReadKey ();
+
+			logProgram.InfoFormat ("total:{0}", totalCount);
+
+
 			Console.ReadKey ();
 
 		}
 
 
+		private static void TestComplex2(){
+
+			var topologyLoader = new TopologyLoader("../Topology/topology.txt", Encoding.UTF8, new TopologyParser());
+			var client = new RpcClient(topologyLoader, new TimeoutSettings(100));
+
+
+
+//			Thread[] ths = new Thread[10000];
+
+			logProgram.Info ("th waiting for start!");
+
+			Stopwatch sw = new Stopwatch ();
+
+			sw.Start ();
+
+//			for (int i = 0; i < ths.Length; i++) {
+//
+//				ThreadPool.QueueUserWorkItem (new WaitCallback (Run), complexService);
+//
+////				ths [i] = new Thread(new ParameterizedThreadStart (Run));
+////				ths [i].Start (complexService);
+//			}
+
+			for (int i = 0; i < 10000; i++) {
+
+				byte[] result = null;
+
+				logProgram.InfoFormat ("start on {0}", Thread.CurrentThread.ManagedThreadId);
+
+				var complexService = client.GetService<IComplexService> ();
+
+				result = complexService.GetStudentList (new byte[1]);
+
+				List<Student> list = Google.ProtoBuf.Serializer.Deserialize<List<Student>> (new MemoryStream (result));
+
+				logProgram.Info(string.Format("list:{0} on {1} ",list.Count,Thread.CurrentThread.ManagedThreadId));
+
+			}
+
+			logProgram.InfoFormat ("TestComplex2 耗时:{0} 毫秒", sw.ElapsedMilliseconds);
+
+			Console.ReadKey ();
+
+		}
+
+		private static void Run(object param){
+
+			var t = (IComplexService)param;
+
+			try{
+
+				byte[] result = null;
+
+				logProgram.InfoFormat ("start on {0}", Thread.CurrentThread.ManagedThreadId);
+
+				result = t.GetStudentList (new byte[1]);
+
+				List<Student> list = Google.ProtoBuf.Serializer.Deserialize<List<Student>> (new MemoryStream (result));
+
+				logProgram.Info(string.Format("list:{0} on {1} ",list.Count,Thread.CurrentThread.ManagedThreadId));
+
+
+			}catch(Exception e){
+
+				logProgram.Error (null, e);
+			}
+
+
+		}
 
 		private static void TestMyService(){
 
