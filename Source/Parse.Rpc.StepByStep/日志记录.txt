@@ -1,0 +1,5 @@
+﻿2014-12-09
+
+15:39 完成Topology的相关功能：读取rpc服务配置，rpc服务配置支持SingleHost[单个端口]和Random[多个端口，随机取一个]的服务配置。
+	  ServiceEndPoint格式：tcp://10.9.60.61:8080 or tcp://domain_name:9090
+	  rpc配置文件中固定每行的格式为：ServiceName TopologyType(single or random) tcp://domain_name:9090,tcp://domain_name:9191

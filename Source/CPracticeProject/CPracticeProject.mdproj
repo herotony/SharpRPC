@@ -7,7 +7,7 @@
     <ProjectGuid>{41317B5C-355F-4352-9549-76A7C6903C1F}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Default|AnyCPU' ">
-    <OutputPath>.\</OutputPath>
+    <OutputPath>.</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <None Include="cards.c" />

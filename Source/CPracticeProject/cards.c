@@ -3,20 +3,51 @@
 int main(){
 
 	char card_name[3];
+	int count=0;
 
-	puts("输入牌名：");
-	scanf("%2s",card_name);
-	int val=0;
-	if(card_name[0]=='K'){val =10;}
-	else if(card_name[0]=='Q'){val=10;}
-	else if(card_name[0]=='J'){val=10;}
-	else if(card_name[0]=='A'){val=11;}
-	else{ val= atoi(card_name);}
+	do{
 
-	printf("这张牌的点数是：%i\n",val);
+		puts("输入牌名：");
+		scanf("%2s",card_name);
+		int val=0;
+		switch(card_name[0]){
 
-	puts("wait");
-	scanf("%2s",card_name);
+			case 'K':
+			case 'Q':
+			case 'J':
+				val = 10;
+				break;
+			case 'A':
+				val = 11;
+				break;
+		    case 'X':
+		    case 'x':
+		        puts("Game Over!");
+			    return 0;
+			default:
+				val = atoi(card_name);
+				break;
+		}
+				
+
+		if(val>11)
+		{
+			printf("错误的输入:%i\n",val);
+			continue;
+		}else
+			printf("当前牌的点数为:%i\n",val);
+
+		if(val>2 && val<7)
+			count++;
+		else if(val==10)
+			count--;
+		
+		printf("当前计数:%i\n",count);
+		  
+
+	}while(1);
+		  
 
 	return 0;
+
 }

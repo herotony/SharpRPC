@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9D38405-33B2-4E61-9CB3-389091010037}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Parse.Rpc.StepByStep</RootNamespace>
+    <AssemblyName>Parse.Rpc.StepByStep</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ClientSide\Proxy\IProxyContainer.cs" />
+    <Compile Include="TimeoutSettings.cs" />
+    <Compile Include="ClientSide\Proxy\IProxyFactory.cs" />
+    <Compile Include="ClientSide\IOutgoingRequestProcessor.cs" />
+    <Compile Include="ServiceEndPoint.cs" />
+    <Compile Include="Topology\IServiceTopology.cs" />
+    <Compile Include="Topology\ITopologyParser.cs" />
+    <Compile Include="Topology\ITopologyLoader.cs" />
+    <Compile Include="Topology\TopologyParser.cs" />
+    <Compile Include="Topology\RandomServiceTopology.cs" />
+    <Compile Include="Topology\SingleHostServiceTopology.cs" />
+    <Compile Include="Topology\TopologyLoader.cs" />
+    <Compile Include="Reflection\MethodParameterDescription.cs" />
+    <Compile Include="Reflection\TypeExtensions.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="ClientSide\" />
+    <Folder Include="Codecs\" />
+    <Folder Include="ClientSide\Proxy\" />
+    <Folder Include="Topology\" />
+    <Folder Include="Reflection\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="日志记录.txt" />
+  </ItemGroup>
+</Project>
