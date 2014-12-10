@@ -47,6 +47,15 @@
     <Compile Include="Topology\TopologyLoader.cs" />
     <Compile Include="Reflection\MethodParameterDescription.cs" />
     <Compile Include="Reflection\TypeExtensions.cs" />
+    <Compile Include="Reflection\MethodParameterWay.cs" />
+    <Compile Include="Reflection\MethodDescription.cs" />
+    <Compile Include="Reflection\GenericParameterDescription.cs" />
+    <Compile Include="Reflection\MethodRemotingType.cs" />
+    <Compile Include="Reflection\IMethodDescriptionBuilder.cs" />
+    <Compile Include="Reflection\MethodDescriptionBuilder.cs" />
+    <Compile Include="Reflection\ServiceDescription.cs" />
+    <Compile Include="Reflection\IServiceDescriptionBuilder.cs" />
+    <Compile Include="Reflection\ServiceDescriptionBuilder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
