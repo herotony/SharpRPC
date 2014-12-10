@@ -18,11 +18,11 @@ namespace Parse.Rpc.StepByStep.Reflection
 		//需要专门测试一下
 		public static Type DeepSubstituteGenerics(this Type type, IReadOnlyDictionary<string, Type> genericArgumentMap)
 		{
-			//类似KeyValuePair<string,Student>中的string or Student
+
 			if (type.IsGenericParameter)
 				return genericArgumentMap[type.Name];
 
-			//类似KeyValuePair<Tkey,TValue>中的TKey or TValue只要一个是泛型T都为true
+
 			if (type.IsGenericType)
 				return type.GetGenericTypeDefinition().MakeGenericType(type.GetGenericArguments().Select(x => DeepSubstituteGenerics(x, genericArgumentMap)).ToArray());
 

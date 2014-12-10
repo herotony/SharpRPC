@@ -3,3 +3,29 @@
 15:39 完成Topology的相关功能：读取rpc服务配置，rpc服务配置支持SingleHost[单个端口]和Random[多个端口，随机取一个]的服务配置。
 	  ServiceEndPoint格式：tcp://10.9.60.61:8080 or tcp://domain_name:9090
 	  rpc配置文件中固定每行的格式为：ServiceName TopologyType(single or random) tcp://domain_name:9090,tcp://domain_name:9191
+
+2014-12-10
+
+	  MethodDescriptionBuilder是根据反射Type提取MethodInfo动态创建方法的核心！
+
+	  MethodDescription [由MethodRemotingType enum,MethodParameterWay enum,MethodParameterDescription,GenericParameterDescription支撑其方法描述功能，用于生成相关方法]
+
+	  今天搞定了ServiceDescriptionBuilder，可以完整获取一个接口的描述信息用于后续的动态生成dynamic assembly!
+
+tip：Linq的Select是专门针对各种集合的每个元素进行【委托方法】的额外处理后返回一个处理后的结果集。
+
+	static void Main()
+    {
+		// An input data array.
+		string[] array = { "cat", "dog", "mouse" };
+
+		// Apply a transformation lambda expression to each element.
+		// ... The Select method changes each element in the result.
+		var result = array.Select(element => element.ToUpper());
+
+		// Display the result.
+		foreach (string value in result)
+		{
+	    	Console.WriteLine(value);
+		}
+    }
