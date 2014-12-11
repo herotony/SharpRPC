@@ -1,6 +1,47 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench />
+=======
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench ActiveDocument="Parse.Rpc.StepByStep\Reflection\TypeExtensions.cs">
+    <Files>
+      <File FileName="Parse.Rpc.StepByStep\Reflection\TypeExtensions.cs" Line="3" Column="3" />
+    </Files>
+=======
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Parse.Rpc.StepByStep" expanded="True">
+            <Node name="Reflection" expanded="True" />
+          </Node>
+          <Node name="ParseConsole.Tests" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Reflection" expanded="True">
+              <Node name="TestReflectionTypeExtensions.cs" selected="True" />
+            </Node>
+          </Node>
+          <Node name="SharpRpc.Tests" expanded="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True">
+          <Node name="ParseConsole.Tests" expanded="True">
+            <Node name="ParseConsole" expanded="True">
+              <Node name="Tests" expanded="True">
+                <Node name="TestReflectionTypeExtensions" expanded="True">
+                  <Node name="TestDeepSubstituteGenerics" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+>>>>>>> origin/Full-Study-01
+  </MonoDevelop.Ide.Workbench>
+>>>>>>> origin/Full-Study-01
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\SharpRpc.Tests\TopologyParserTests.cs" line="53" column="1" />
