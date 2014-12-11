@@ -29,3 +29,40 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
 	    	Console.WriteLine(value);
 		}
     }
+		
+2014-12-11
+
+		开始CodecContainer剖析，基本就是靠TypeBuilder来创建instance和其内部的处理！进入关键部分了...
+
+		还是从ProxyFactory切入：
+
+			1、设定new一个ServiceDescriptionBuilder用以剖析某个接口，亦即ProxyContainer中传入的泛型接口T
+			2、设定new一个codecContainer传入最终创建的动态Assembly内进行输入数据的提取？
+			3、AppDomain.CurrentDomain来DefineDynamicAssembly->assemblyBuilder.DefineDynamicModule->moduleBuilder.DefineType->TypeBuilder负责fieldCache和classContext的创建
+
+				fieldCache实际就是ProxyClassFieldCache亦即创建几个proxy instance用到的内部字段：methodCallProcessor,scope,timeoutSettings,codecContainer,(manualCodecFields干嘛的还不清楚)
+				classContext实际就是通过之前的TypeBuilder创建给DynamicAssembly的module的类型和相关方法以及类型的“构造函数”
+
+				typeBuilder.DefineMethod->methodBuilder.GetILGenerator()->iL
+
+			4、CreateMethod、CreateConstructor
+				
+				 ProxyMethodParameterCodec：用于动态生成Method参数，重点看如何处理，该类负责为每个参数设定相应的处理引擎(如何提取参数值，如何计算大小，如何转换为二进制数组)
+
+				 ILGenerator is used to generate method bodies for methods and constructors in dynamic assemblies.
+
+				 注意这里强调是"method bodies"，即method和其相关的输入参数在methodBuilder中定义，但方法体中的执行代码采用iL生成。
+
+				 OpCode：struct,用于描述Intermediate Language指令
+				 OpCodes：定义了所有的OpCode.
+				 ILGenerator.Emit(OpCode,...):将设定的指令OpCode和相关的...其他参数写入dynamic assemblies的IL流中。
+
+				 EmitCalculateSize计算获取每个输入参数的字节大小
+				 然后，再根据该大小初始化一个大的字节数组
+				 EmitEncode,将各个参数转化为相应的字节数据写入该数组(如果序列化应该是在此引入序列化引擎或者计算输入参数前)
+
+2014-12-12
+
+		如果有时间，重点剖析ProxyFactory的CreateMethod方法中如何生成处理输入参数的执行代码
+			ProxyMethodEmittingContext
+

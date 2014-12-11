@@ -56,6 +56,11 @@
     <Compile Include="Reflection\ServiceDescription.cs" />
     <Compile Include="Reflection\IServiceDescriptionBuilder.cs" />
     <Compile Include="Reflection\ServiceDescriptionBuilder.cs" />
+    <Compile Include="Codecs\MyILGenerator.cs" />
+    <Compile Include="Codecs\IForeachLoopEmitter.cs" />
+    <Compile Include="Codecs\IForLoopEmitter.cs" />
+    <Compile Include="Codecs\ForLoopEmitter.cs" />
+    <Compile Include="Codecs\ForeachLoopEmitter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
