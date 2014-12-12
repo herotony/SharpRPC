@@ -195,6 +195,7 @@ namespace Parse.Rpc.StepByStep.Codecs
 
 		public void Initobj(Type type)
 		{
+			//先生地址，然后pop得到该地址，并在该地址上生成该对象或初始化为默认值
 			Emit(OpCodes.Initobj, type);
 		}
 
@@ -203,6 +204,7 @@ namespace Parse.Rpc.StepByStep.Codecs
 			Emit(OpCodes.Isinst, type);
 		}
 
+		//实际就是将方法的各个实际参数值提取到指定的堆栈上，比如当前动态生成的方法栈上
 		public void Ldarg(int argIndex)
 		{
 			switch (argIndex)

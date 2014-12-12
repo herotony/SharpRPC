@@ -66,3 +66,5 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
 		如果有时间，重点剖析ProxyFactory的CreateMethod方法中如何生成处理输入参数的执行代码
 			ProxyMethodEmittingContext
 
+		下周继续吧，今儿就先这样吧，唉...
+

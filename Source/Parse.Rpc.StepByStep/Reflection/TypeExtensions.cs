@@ -35,6 +35,39 @@ namespace Parse.Rpc.StepByStep.Reflection
 			//非泛型直接返回即可，所以输入参数genericArgumentMap只对泛型才有参考价值
 			return type;
 		}
+
+		public static MethodInfo GetMethodSmart(this Type type, string methodName)
+		{
+			if (type.IsGenericType && type.ContainsTypeBuilders())
+			{
+				var genericDefinition = type.GetGenericTypeDefinition();
+				var methodInfo = genericDefinition.GetMethod(methodName);
+				return TypeBuilder.GetMethod(type, methodInfo);
+			}
+			return type.GetMethod(methodName);
+		}
+
+		public static MethodInfo GetMethodSmart(this Type type, Func<MethodInfo, bool> isCorrectMethod)
+		{
+			if (type.IsGenericType && type.ContainsTypeBuilders())
+			{
+				var genericDefinition = type.GetGenericTypeDefinition();
+				var methodInfo = genericDefinition.GetMethods().Single(isCorrectMethod);
+				return TypeBuilder.GetMethod(type, methodInfo);
+			}
+			return type.GetMethods().Single(isCorrectMethod);
+		}
+
+		public static bool ContainsTypeBuilders(this Type type)
+		{
+			if (type is GenericTypeParameterBuilder)
+				return true;
+			if (type.IsGenericType)
+				return type.GenericTypeArguments.Any(ContainsTypeBuilders);
+			if (type.HasElementType)
+				return ContainsTypeBuilders(type.GetElementType());
+			return false;
+		}
 	}
 }
 

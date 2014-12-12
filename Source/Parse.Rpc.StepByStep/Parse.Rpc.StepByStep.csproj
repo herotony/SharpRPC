@@ -61,6 +61,9 @@
     <Compile Include="Codecs\IForLoopEmitter.cs" />
     <Compile Include="Codecs\ForLoopEmitter.cs" />
     <Compile Include="Codecs\ForeachLoopEmitter.cs" />
+    <Compile Include="Codecs\Loaders.cs" />
+    <Compile Include="Codecs\TaskMethod.cs" />
+    <Compile Include="Codecs\TypeMethods.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
