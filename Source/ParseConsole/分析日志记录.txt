@@ -80,3 +80,9 @@ IOutgoingRequestProcessor：只是设定了发送数据到远程的接口，但�
 2014-12-09 to 2014-12-19   
 
 目的：完全逐步复制，如何创建ProxyClass并提取相关输入参数后传入发送请求模块的方方面面即可。通过TDD模式进行复制
+
+2014-12-15：
+
+     async/await实际没有另起什么线程而是采用了基于windows message机制的SynchronizationContext来将相关delegate交给另外的线程处理，并通过SynchronizationContext回传相关处理结果。具体可参考文章：http://www.codeproject.com/Articles/31971/Understanding-SynchronizationContext-Part-I
+
+     这点很重要，因为本rpc机制中采用了aysnc/await相关机制，但在线程池的模式中成了单线程而不是并发多线程，但采用thread.start模式则很正常，很诡异！

@@ -1,13 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\ClientSide\Proxy\ProxyFactory.cs">
-    <Files>
-      <File FileName="SharpRpc\ClientSide\Proxy\ProxyFactory.cs" Line="60" Column="60" />
-      <File FileName="SharpRpc\ClientSide\Proxy\ProxyMethodParameterCodec.cs" Line="44" Column="44" />
-      <File FileName="SharpRpc\Codecs\IndirectCodec.cs" Line="43" Column="43" />
-      <File FileName="Parse.Rpc.StepByStep\Codecs\Loaders.cs" Line="44" Column="44" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
