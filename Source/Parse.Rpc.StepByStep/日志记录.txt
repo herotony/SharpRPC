@@ -71,3 +71,50 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
 		不再纠缠方法类型支持了，一律采用"byte[] methodname(byte[] input)"，只是在其外封装一层T methodnamewrapper(T1);即可。
 		后续尽快模拟相关代码其余架构，不再纠结Emit处理引用类型的问题了。继续...本周必须搞定嵌入tcp通讯架构即可。
 
+2014-12-16
+
+				之前的methodBuilder定义了创建方法的名称，参数、返回参数类型等外壳信息，然后从methodBuilder的ILGenerator开始
+				真正设定方法的执行代码逻辑，即如下中的il...
+
+		        //用于封装传给远端服务器的请求参数，统一打包到byte[]中。
+		        var requestDataArrayVar = il.DeclareLocal(typeof(byte[]));                      // byte[] dataArray
+
+		        bool haveSizeOnStack = false;
+                foreach (var codec in genericTypeParameterCodecs)
+                {
+                    codec.EmitCalculateSize(emittingContext);                               // stack_0 += CalculateSize(T_i)
+                    EmitAddIf(il, ref haveSizeOnStack);
+                }
+
+                foreach (var parameter in requestParametersCodecs)
+                {
+                    parameter.EmitCalculateSize(emittingContext);                           // stack_0 += CalculateSize(arg_i)    
+                    EmitAddIf(il, ref haveSizeOnStack);
+                }
+
+                //stack_0参数是byte大小的确定依据，是否代表了具体的参数具体数据大小已定？
+                //data = dataPointer实际是将新创建的byte[]赋予emittingContext的DataPointer供后续写入真实参数数据
+                //所以关键的两个foreach codec才是真正如何编码或者要额外可能序列化地方，唉...
+                il.Newarr(typeof(byte));                                                    // dataArray = new byte[stack_0]
+                il.Stloc(requestDataArrayVar);
+                var pinnedVar = il.PinArray(typeof(byte), requestDataArrayVar);             // var pinned dataPointer = pin(dataArray)
+                il.Ldloc(pinnedVar);                                                        // data = dataPointer
+                il.Stloc(emittingContext.DataPointerVar);
+
+
+                //最最关键的两行EmitEncode!!!!!!
+                //EmitEncode是关键吗？这里的codec目前看来都是Proxy用的IndirectCodec.cs
+                foreach (var codec in genericTypeParameterCodecs)
+                    codec.EmitEncode(emittingContext);                                      // Encode(T_i, data)
+
+                foreach (var codec in requestParametersCodecs)
+                    codec.EmitEncode(emittingContext); 
+
+
+                *********EmitCalculateSize*********
+				根据type载入相应的ManualCodec,然后提取参数值？然后再用ManualCodecMethods.CalculateSize计算具体的数据大小
+				这个是明天要搞定的关键点！即ManualCodec相关的代码！
+
+				ProxyMethodEmittingContext->ProxyClassFieldCache->GetOrCreateManualCodec->typeBuilder.DefineType[typeof(IManualCodec<>).MakeGenericType(type)]从而获取ManualCode类型！
+
+
