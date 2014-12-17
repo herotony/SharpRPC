@@ -117,4 +117,6 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
 
 				ProxyMethodEmittingContext->ProxyClassFieldCache->GetOrCreateManualCodec->typeBuilder.DefineType[typeof(IManualCodec<>).MakeGenericType(type)]从而获取ManualCode类型！
 
+				ProxyMethodParameterCodec的Action<MyILGenerator>设定了提取当前方法参数值的方式!自测Ldarg_0和Ldobj【Ldobj貌似是只针对ref out标明的值类型参数拷贝到堆栈上，而引用类型参数呢？】，分别提取ref,out和其他方式的对象参数的值。
+
 

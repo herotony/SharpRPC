@@ -1,20 +1,31 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Parse.Rpc.StepByStep\日志记录.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs">
     <Files>
-      <File FileName="Parse.Rpc.StepByStep\日志记录.txt" Line="5" Column="5" />
-      <File FileName="SharpRpc\ClientSide\Proxy\ProxyFactory.cs" Line="101" Column="101" />
-      <File FileName="SharpRpc\Codecs\IndirectCodec.cs" Line="43" Column="43" />
-      <File FileName="SharpRpc\Codecs\Loaders.cs" Line="5" Column="5" />
-      <File FileName="SharpRpc\ClientSide\Proxy\ProxyMethodParameterCodec.cs" Line="37" Column="37" />
-      <File FileName="SharpRpc\ClientSide\Proxy\ProxyMethodEmittingContext.cs" Line="59" Column="59" />
-      <File FileName="SharpRpc\ClientSide\Proxy\ProxyClassFieldCache.cs" Line="65" Column="65" />
-      <File FileName="SharpRpc\Codecs\IManualCodec.cs" Line="5" Column="5" />
-      <File FileName="SharpRpc\Codecs\ManualCodecBase.cs" Line="9" Column="9" />
+      <File FileName="SharpRpc\ClientSide\Proxy\ProxyFactory.cs" Line="4" Column="4" />
+      <File FileName="ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" Line="30" Column="30" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True">
+          <Node name="ParseConsole.Tests" expanded="True">
+            <Node name="ParseConsole" expanded="True">
+              <Node name="Tests" expanded="True">
+                <Node name="TestReflectionTypeExtensions" expanded="True">
+                  <Node name="TestLdarg" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="101" column="1" />
+      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="153" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

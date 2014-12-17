@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using NSubstitute;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Runtime.Serialization;
+
+
+using Parse.Rpc.StepByStep.Codecs;
 using Parse.Rpc.StepByStep.Reflection;
 using Parse.Rpc.StepByStep.ClientSide.Proxy;
 
@@ -56,7 +61,7 @@ namespace ParseConsole.Tests
 
         #region 测试ServiceDescriptionBuiler
 
-		[Test]
+		//[Test]
 		public void TestServiceDescriptionBuilder(){
 
 			var builder = new ServiceDescriptionBuilder (new MethodDescriptionBuilder ());
@@ -79,15 +84,74 @@ namespace ParseConsole.Tests
 					MethodParameterWay x =   param.Way;
 				}
 
-			}
-
-
-
+			}				
 
 			Assert.AreEqual (1, 1);
 
 		}
 
+
+		#endregion
+
+		#region 测试Ldarg,Ldobj
+
+		[Test]
+		public void TestLdarg(){
+
+			var appDomain = AppDomain.CurrentDomain;
+			var assemblyBuilder = appDomain.DefineDynamicAssembly(new AssemblyName("rkProxies"), AssemblyBuilderAccess.Run);
+			var moduleBuilder = assemblyBuilder.DefineDynamicModule("rkProxyModule");
+			var typeBuilder = moduleBuilder.DefineType ("rkComplex", TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.Class, typeof(object), new[] { typeof(IComplexEx) });
+
+			var methodBuilder = typeBuilder.DefineMethod("GetStudent",MethodAttributes.Public | MethodAttributes.Final | MethodAttributes.HideBySig |
+			MethodAttributes.NewSlot | MethodAttributes.Virtual);
+
+
+			methodBuilder.SetParameters (new Type[]{ typeof(Student) });
+			methodBuilder.SetReturnType (typeof(string));
+			methodBuilder.SetImplementationFlags(MethodImplAttributes.Managed);
+
+			ILGenerator il = methodBuilder.GetILGenerator ();
+
+
+
+
+			var param = methodBuilder.GetParameters() [0];
+			var local = il.DeclareLocal (param.ParameterType, true);//声明一个类型为Student的本地变量
+			var retstr = il.DeclareLocal (typeof(string), true);
+
+			il.Emit (OpCodes.Ldarg_0);
+
+			if (param.ParameterType.IsValueType)
+				il.Emit (OpCodes.Unbox_Any, param.ParameterType); //值类型，拆箱操作:string=(string)object;
+			else
+				il.Emit (OpCodes.Castclass, param.ParameterType); //引用类型，class=(class)object;
+
+			il.Emit (OpCodes.Stloc, local);//将上面装箱或者转换赋值到本地变量
+
+			var toStrMethod = typeof(Student).GetMethod ("ToString");
+			il.Emit (OpCodes.Callvirt, toStrMethod);
+			il.Emit (OpCodes.Ldloca, retstr);
+
+			il.Emit (OpCodes.Ret);
+				
+			typeBuilder.DefineDefaultConstructor(MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName | MethodAttributes.RTSpecialName);
+			Type finalType = typeBuilder.CreateType ();
+
+			IComplexEx  instance = (IComplexEx)Activator.CreateInstance (finalType);
+
+		
+			Student st1 = new Student ();
+
+			st1.Address="北京";
+			st1.Age = 30;
+			st1.Male = false;
+			st1.Name = "H";
+
+			string ret = instance.GetStudent (st1);
+				
+			Assert.AreEqual (1, 1);
+		}
 
 		#endregion
 
@@ -138,7 +202,8 @@ namespace ParseConsole.Tests
 
 	public interface IComplexEx{
 	
-		Student GetSutdent<T>(int i,decimal[] d,string k,string[] h,DateTime dt,List<Student> lst,KeyValuePair<string,Student> kv,ref string error,out Student exp);
+		//Student GetSutdent<T>(int i,decimal[] d,string k,string[] h,DateTime dt,List<Student> lst,KeyValuePair<string,Student> kv,ref string error,out Student exp);
+		string GetStudent (Student st);
 	}
 
 	public interface ISecondComplexEx :IComplexEx{
@@ -153,9 +218,14 @@ namespace ParseConsole.Tests
 	public class Student{
 
 		public string Name{ get; set;}
-		public int Aget{ get; set;}
+		public int Age{ get; set;}
 		public string Address{ get; set;}
 		public bool Male{ get; set;}
+
+		public override string ToString ()
+		{
+			return string.Format ("[Student: Name={0}, Age={1}, Address={2}, Male={3}]", Name, Age, Address, Male);
+		}
 	}
 
 	#endregion
