@@ -3,7 +3,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs">
     <Files>
       <File FileName="SharpRpc\ClientSide\Proxy\ProxyFactory.cs" Line="4" Column="4" />
-      <File FileName="ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" Line="30" Column="30" />
+      <File FileName="ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" Line="34" Column="34" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">
@@ -23,8 +23,13 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="101" column="1" />
-      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="153" column="1" />
+      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="204" column="1" />
+      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="149" column="1" />
+      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="102" column="1" />
+      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="133" column="26" />
+      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="111" column="43" />
+      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="117" column="1" />
+      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="131" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
