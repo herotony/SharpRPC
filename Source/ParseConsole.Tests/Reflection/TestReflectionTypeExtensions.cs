@@ -132,13 +132,7 @@ namespace ParseConsole.Tests
 
 				string k = e.Message;
 			}
-
-
-
-
-		
-
-
+												
 
 			Assert.AreEqual (1, 1);
 		}
@@ -154,20 +148,20 @@ namespace ParseConsole.Tests
 
 			ILGenerator ilOfCtor = constructorBuilder.GetILGenerator();
 
-			ilOfCtor.Emit(OpCodes.Ldarg_0);//this，当前实例引用
+			ilOfCtor.Emit(OpCodes.Ldarg_0);//this，当前实例引用，一般instance的类，ldarg_0就是this
 			ilOfCtor.Emit(OpCodes.Call, objCtor);
 			ilOfCtor.Emit (OpCodes.Ret);
 
-			typeBuilder.AddInterfaceImplementation (typeof(IComplexEx));
+			typeBuilder.AddInterfaceImplementation (typeof(IComplexEx));//必须加上这句才能代表实现相关接口...
 			var methodInfo = typeof(Student).GetMethod ("ToString");
 			var methodBuilder = typeBuilder.DefineMethod ("GetStudent", MethodAttributes.Public | MethodAttributes.Final | MethodAttributes.HideBySig |
 				MethodAttributes.NewSlot | MethodAttributes.Virtual, CallingConventions.ExplicitThis | CallingConventions.HasThis,typeof(string), new Type[]{ typeof(Student) });
 
 			ILGenerator ilOfmethod = methodBuilder.GetILGenerator ();
 
-			ilOfmethod.Emit (OpCodes.Ldarg_1);
-			ilOfmethod.Emit (OpCodes.Callvirt, methodInfo);
-			ilOfmethod.Emit (OpCodes.Ret);
+			ilOfmethod.Emit (OpCodes.Ldarg_1);//提取Student参数入栈
+			ilOfmethod.Emit (OpCodes.Callvirt, methodInfo);//调用Student.ToString()并将结果入栈
+			ilOfmethod.Emit (OpCodes.Ret);//返回栈中结果值
 
 		}
 
