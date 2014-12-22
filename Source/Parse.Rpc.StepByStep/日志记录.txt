@@ -257,6 +257,14 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
 
                 ManualCodecMethods.CalculateSize是如何运作的是下周的研究点,涉及ManualCodec,ManualCodecBase
 
+2014-12-22
+
+                CodeContainer是在RpcClient层传入
+
+                CreateManualCodec入口点 -> GetEmittingCodecFor -> CreateCodec，根据具体的type获取具体的IEmittingCodec来处理具体类型的参数值
+
+                而这些众多的IEmittingCodec实例则包含了具体如何Encode,Decode,CaculateSize的关键处理，本周好好都吃透了吧，尤其是对象类，集合类的处理!
+
 
 
 

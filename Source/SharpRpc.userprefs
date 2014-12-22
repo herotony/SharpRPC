@@ -1,8 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Parse.Rpc.StepByStep\日志记录.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\RpcClient.cs">
     <Files>
-      <File FileName="Parse.Rpc.StepByStep\日志记录.txt" Line="135" Column="135" />
+      <File FileName="SharpRpc\Codecs\ManualCodec.cs" Line="56" Column="56" />
+      <File FileName="Parse.Rpc.StepByStep\日志记录.txt" Line="44" Column="44" />
+      <File FileName="SharpRpc\ClientSide\Proxy\ProxyMethodParameterCodec.cs" Line="9" Column="9" />
+      <File FileName="SharpRpc\ClientSide\Proxy\ProxyMethodEmittingContext.cs" Line="59" Column="59" />
+      <File FileName="SharpRpc\ClientSide\Proxy\ProxyClassFieldCache.cs" Line="9" Column="9" />
+      <File FileName="SharpRpc\IRpcClientServerComponentContainer.cs" Line="1" Column="1" />
+      <File FileName="SharpRpc\RpcClientComponentContainer.cs" Line="79" Column="79" />
+      <File FileName="SharpRpc\RpcClient.cs" Line="129" Column="129" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
