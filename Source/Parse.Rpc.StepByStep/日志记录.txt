@@ -265,6 +265,28 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
 
                 而这些众多的IEmittingCodec实例则包含了具体如何Encode,Decode,CaculateSize的关键处理，本周好好都吃透了吧，尤其是对象类，集合类的处理!
 
+2014-12-23
+
+                RpcClient -> RpcClientComponentContainer -> proxyContainer -> T
+                 				|                               |
+                 				|                               | -> new  ProxySet<T>(processor,factory.CreateProxy<T>()) [这里的factory包含了CodecContainer!亦即由GetServiceProxyClassFactory()创建]
+                 				|                 				                                               			                 				                                               				                  
+                 				| -> GetIServiceProxyContainer
+			 							|
+			 							| -> GetOutgoingMethodCallProcessor() -> new OutgoingRequestProcessor(topology,requestSenderContainer,GetCodecContainer());
+                         				|
+                         				| -> GetServiceProxyClassFactory() -> new ProxyFactory(GetSeriveDescriptionBuilder(),GetCodecContainer())
+
+                factory.CreateProxy<T> 
+						|
+						| -> var proxyClass = CreateProxyClass(typeof(T), typeof(T), null); 根据SeriveDescriptionBuilder创建动态Assembly Class[会缓存到ProxyContainer的ProxySet中]，然后生成Instance
+						|
+						| -> (T) Activator.CreateInstance(proxyClass, p, s, t, codecContainer); 传入 p: processor ; s: scope ; t: timeoutSetting ; codecContainer
+
+				明天继续：只要顺藤摸瓜，找到caculateSize的执行路径即可，搞清到底是codecContainer动态生成的ManualCodec还是...
+
+                
+
 
 
 

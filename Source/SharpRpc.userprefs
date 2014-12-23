@@ -1,15 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\RpcClient.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Parse.Rpc.StepByStep\日志记录.txt">
     <Files>
-      <File FileName="SharpRpc\Codecs\ManualCodec.cs" Line="56" Column="56" />
-      <File FileName="Parse.Rpc.StepByStep\日志记录.txt" Line="44" Column="44" />
-      <File FileName="SharpRpc\ClientSide\Proxy\ProxyMethodParameterCodec.cs" Line="9" Column="9" />
-      <File FileName="SharpRpc\ClientSide\Proxy\ProxyMethodEmittingContext.cs" Line="59" Column="59" />
-      <File FileName="SharpRpc\ClientSide\Proxy\ProxyClassFieldCache.cs" Line="9" Column="9" />
-      <File FileName="SharpRpc\IRpcClientServerComponentContainer.cs" Line="1" Column="1" />
-      <File FileName="SharpRpc\RpcClientComponentContainer.cs" Line="79" Column="79" />
-      <File FileName="SharpRpc\RpcClient.cs" Line="129" Column="129" />
+      <File FileName="SharpRpc\ClientSide\Proxy\ProxyFactory.cs" Line="21" Column="21" />
+      <File FileName="SharpRpc\Codecs\CodecContainer.cs" Line="49" Column="49" />
+      <File FileName="SharpRpc\Codecs\IndirectCodec.cs" Line="43" Column="43" />
+      <File FileName="SharpRpc\ClientSide\Proxy\ProxyMethodEmittingContext.cs" Line="66" Column="66" />
+      <File FileName="SharpRpc\ClientSide\Proxy\ProxyClassFieldCache.cs" Line="5" Column="5" />
+      <File FileName="SharpRpc\Codecs\EmittingContextBase.cs" Line="5" Column="5" />
+      <File FileName="Parse.Rpc.StepByStep\日志记录.txt" Line="148" Column="148" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
