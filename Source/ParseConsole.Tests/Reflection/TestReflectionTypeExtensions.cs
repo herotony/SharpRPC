@@ -98,6 +98,13 @@ namespace ParseConsole.Tests
 		[Test]
 		public void TestLdarg(){
 		
+			Type t1 = typeof(char);
+
+			bool bValue = t1.IsPrimitive;
+
+			bValue = t1.IsValueType;
+
+
 
 			var appDomain = AppDomain.CurrentDomain;
 			var assemblyBuilder = appDomain.DefineDynamicAssembly(new AssemblyName("rkProxies"), AssemblyBuilderAccess.RunAndSave);

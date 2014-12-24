@@ -285,6 +285,69 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
 
 				明天继续：只要顺藤摸瓜，找到caculateSize的执行路径即可，搞清到底是codecContainer动态生成的ManualCodec还是...
 
+
+2014-12-24
+				再看factory.CreateProxy<T>内部的CreateProxyClass方法：
+
+
+
+				ProxyClassFieldCache：存储着创建的T类型的Proxy class的所有Field的声明定义而已，没有任何的具体实例化对象。实际是一种type对应一个FieldBuilder,类型固定为IManualCodec<type>，不会产生一个type多个FiledBuilder
+
+
+				!!!****极其重要的地方****!!!
+
+					所有ProxyClassFieldCache中定义的Field,包括各种IManualCodec<type>都是声明为FieldAttributes.InitOnly，亦即必须在构造函数时初始化且不能更改！即readonly型！
+
+					相关初始化在【CreateConstructor】中完成！这是关键的关键，oh my God！ 总算彻底明确了IManualCodec<>的实例化处。
+
+				!!!****极其重要的地方****!!!
+
+
+				ProxyClassBuildingContext：关键就是负责保存创建Proxy Class所必须的TypeBuilder以及动态增加内部FiledBuilder定义的ProxyClassFieldCache
+
+				ProxyClassBuildingContext则贯穿整个创建Proxy Class的所有过程:CreateMethod,CreateConstructor,即贯穿类中的所有方法
+
+				//// CreateMethod \\\\：
+
+				ProxyMethodEmittingContext则保存了具体创建方法处理逻辑的MyILGenerator和ProxyClassFieldCache，只贯穿具体的某一个方法，是具体的Emit执行者
+
+				//关键的方法执行逻辑设定类
+				ProxyMethodParameterCodec(MethodParameterDescription param)
+					|
+					| -> this.argIndex = param.Index+1;(因为index=0的为this)
+					|    this.codec = new IndirectCodec(param.Type);(client端，固定为IndirectCodec)
+					|    this.emitLoad = param.Way == MethodParameterWay.Val ? Loaders.Argument(argIndex) : Loaders.Argument(argIndex,param.Type);
+					|                                                                   |
+					|                                                                   | -> return il=>il.Ldarg(argIndex);//提取具体的参数值并Push到栈
+					|
+					| -> EmitCalculateSize(ProxyMethodEmittingContext ec);//为方法的每个参数计算其值所占字节空间大小
+							|
+							| -> indirectCodec.EmitCalculateSize(ec,this.emitLoad)
+												|
+												| -> ec.EmitLoadManualCodecFor(param.Type); {il.Ldarg(0);IL.Ldfld(fieldCache.GetOrCreateManualCodec(param.Type));} //??相当于(比如:type为string) IManualCode<string> this.codecFor_typename_number的实例对象地址压入栈。
+												     il.Ldarg(argIndex);//提取参数并push入栈，将CaculateSize的参数压入栈，供后续的调用使用
+												     il.Callvirt(ManualCodecMethods.CalculateSize(type));//调用IManualCodec<type>.CalculateSize方法，实际就是call名为CalculateSize的MethodInfo
+
+
+			    //// CreateConstructor \\\\：
+
+			    foreach (var manualCodecField in classContext.Fields.GetAllManualCodecFields())
+            	{
+                	var type = manualCodecField.FieldType.GenericTypeArguments[0];
+                	ValidateManualCodecType(type);
+
+                	//如下四行相当于:(比如:type为int)IManualCodec<int> codecFor_int_number = this.CodecContainer.GetManualCodecFor<int>(); ok! 具体请参考CodecContainer.GetManualCodecFor方法即可
+
+                	il.Ldarg(thisArgIndex);
+                	il.Ldarg(codecContainerArgIndex);
+                	il.Call(CodecContainerMethods.GetManualCodecFor(type));
+                	il.Stfld(manualCodecField);
+            	}
+
+
+
+				
+
                 
 
 
