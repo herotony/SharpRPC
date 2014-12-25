@@ -105,7 +105,6 @@ namespace ParseConsole.Tests
 			bValue = t1.IsValueType;
 
 
-
 			var appDomain = AppDomain.CurrentDomain;
 			var assemblyBuilder = appDomain.DefineDynamicAssembly(new AssemblyName("rkProxies"), AssemblyBuilderAccess.RunAndSave);
 			var moduleBuilder = assemblyBuilder.DefineDynamicModule("rkProxiesModule","rkProxies.dll");

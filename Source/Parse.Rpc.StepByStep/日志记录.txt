@@ -344,6 +344,46 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
                 	il.Stfld(manualCodecField);
             	}
 
+2014-12-15
+            	【DynamicMethod + delegate模式】，无需创建Module,Type的方式，直接创建Emit方法的简洁模式，适用于短小代码，但凡是Emit，效率直逼直接调用版
+
+            	sample:
+
+            	delegate int AddDelegate(int a,int b);
+
+            	AddDelegate add_delegate;
+
+            	DynamicMethod addMethod = new DynamicMethod("add_method",typeof(int),new Type[]{typeof(int),typeof(int)});
+
+            	ILGenerator il = addMethod.GetILGenerator();
+
+            	....il Emit code here...
+
+            	il.Ret();
+
+            	//dynamicMethod + delegate模式的应用场景
+
+            	add_delegate = (AddDelegate)addMethod.CreateDelegate(typeof(AddDelegate));
+
+            	int result = add_delegate(1,2);
+
+
+            	【从IEmittingContext开始...】
+            	IEmittingContext：定义了三个属性：MyILGenerator,字节指针DataPointerVar，字节计数变量RemainingBytesVar ； 两个方法：GetSharedVariable获取共享本地变量LocalBuilder和最最关键的注入方法体逻辑的 EmitLoadManualCodecFor(Type type);
+            	   |
+            	   | -> public abstract class EmittingContextBase : IEmittingContext ，实例化三个属性，实现GetSharedVariable方法，仅将EmitLoadManualCodecFor设为abstract供子类实现
+            	   |                              |
+            	   |                              | -> 客户端的 ProxyMethodEmittingContext ： 实现EmitLoadManualCodecFor方法只是为每个方法参数声明一个IManualCodec<T>的变量存于ProxyClassFieldCache中
+            	   |                              | -> 服务端的 HandlerMethodEmittingContext：实现EmitLoadManualCodecFor方法基本完全等同于ProxyMethodEmittingContext
+            	   |                              | -> 真正核心处理的 ManualCodecEmittingContext : 实现EmitLoadManualCodecFor方法内部调用codecContainer.GetManualCodecFor(Type type)为每种类型type生成Emit的处理逻辑，实际就是提取参数值保存到DataPointerVar指向的字节数组
+
+
+            	明天开始分析服务端逻辑，本周搞定大体框架，下周开始复制Codec的部分核心代码。
+
+            	我初步理解的思路：服务器接收到的字节数组会经过特殊处理后还原为具体参数，然后交由真正的服务接口处理后，再将返回参数打包到字节数组返回，这个完整流程必须搞清除了，才好开始复制
+
+
+
 
 
 				
