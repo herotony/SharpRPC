@@ -1,13 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\RpcClientServer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Parse.Rpc.StepByStep\日志记录.txt">
     <Files>
-      <File FileName="SharpRpc\ServerSide\RequestReceiverContainer.cs" Line="1" Column="1" />
-      <File FileName="SharpRpc\ServerSide\HttpRequestReceiver.cs" Line="66" Column="66" />
-      <File FileName="SharpRpc\ServerSide\IncomingRequestProcessor.cs" Line="72" Column="72" />
-      <File FileName="SharpRpc\ServerSide\ServiceImplementationContainer.cs" Line="73" Column="73" />
-      <File FileName="SharpRpc\ServerSide\ServiceImplementationFactory.cs" Line="42" Column="42" />
-      <File FileName="SharpRpc\RpcClientServer.cs" Line="34" Column="34" />
+      <File FileName="SharpRpc\ServerSide\Handler\HandlerContainer.cs" Line="35" Column="35" />
+      <File FileName="SharpRpc\ServerSide\Handler\IRawHandlerFactory.cs" Line="5" Column="5" />
+      <File FileName="SharpRpc\ServerSide\Handler\IHandlerFactory.cs" Line="37" Column="37" />
+      <File FileName="SharpRpc\ServerSide\Handler\HandlerFactory.cs" Line="9" Column="9" />
+      <File FileName="Parse.Rpc.StepByStep\日志记录.txt" Line="413" Column="413" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

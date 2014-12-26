@@ -344,7 +344,7 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
                 	il.Stfld(manualCodecField);
             	}
 
-2014-12-15
+2014-12-25
             	【DynamicMethod + delegate模式】，无需创建Module,Type的方式，直接创建Emit方法的简洁模式，适用于短小代码，但凡是Emit，效率直逼直接调用版
 
             	sample:
@@ -381,6 +381,47 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
             	明天开始分析服务端逻辑，本周搞定大体框架，下周开始复制Codec的部分核心代码。
 
             	我初步理解的思路：服务器接收到的字节数组会经过特殊处理后还原为具体参数，然后交由真正的服务接口处理后，再将返回参数打包到字节数组返回，这个完整流程必须搞清除了，才好开始复制
+
+ 
+2014-12-26
+
+ 				RpcClientServer
+ 					|
+ 					| -> constructor -> RpcClientServerComponentContainer -> componentContainer.GetLogger()
+ 					|                                                        componentContainer.GetServiceImplementationContainer()
+ 					|                                                        componentContainer.GetRequestReceiverContainer().GetReceiver(settings.EndPoint.Protocol) ： 用于启动监听，接收请求数据并处理后返回，是入口点
+ 					|                                                                                |
+ 					|                                                                                | -> new RequestReceiverContainer(GetIncomingRequestProcessor(), GetLogger()))
+ 					|                                                                                |                                       |
+ 					|                                                                                |                                       | -> new IncomingRequestProcessor(GetLogger(), GetServiceImplementationContainer(), GetServiceMethodHandlerContainer(), GetCodecContainer()))
+ 					|                                                                                |                                       |                                                    |                                        |
+ 					|                                                                                |                                       |                                                    |                          			   | ->new HandlerContainer(GetServiceMethodHandlerFactory()))
+ 					|                                                                                |                                       |                                                    |                                        |                                |
+ 					|                                                                                |                                       |                                                    |                                        |                                | ->new HandlerFactory(GetCodecContainer(), GetServiceMethodDelegateFactory())) : HandlerFactory类的CreateHandler返回处理数据的IHandler，内部用RawHandlerFactory创建具体的Emit代码                                                                     
+ 					|                                                                                |                                       |                                                    |                                        |                                |                                                    |
+ 					|                                                                                |                                       |                                                    |                                        |                                |                                                    | -> new RawHandlerFactory(GetCodecContainer())); 返回RawHandlerFactory，这个貌似是接收处理的关键类
+ 					|                                                        componentContainer.GetIServiceProxyContainer()
+
+ 				
+
+ 			   【IncomingRequestProcessor】
+
+ 			    //获取方法URI
+ 				var implementationInfo = serviceImplementationContainer.GetImplementation(request.Path.ServiceName, request.ServiceScope);
+
+ 				//获取方法
+                var methodHandler = handlerContainer.GetHandler(implementationInfo.Description, request.Path);
+
+                //最终处理地Handle方法
+                var responseData = await methodHandler.Handle(implementationInfo.Implementation, request.Data, 0);
+
+
+                【RawHandlerFactory.CreateMethodDelegate】
+
+                最终完成参数的解码，方法的调用，结果的返回，一气呵成就在此处。
+
+
+                客户端，服务器的入口类分别为：RpcClient , RpcClientServer
 
 
 
