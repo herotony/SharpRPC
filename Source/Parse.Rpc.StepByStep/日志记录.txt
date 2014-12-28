@@ -424,6 +424,10 @@ tip：Linq的Select是专门针对各种集合的每个元素进行【委托方�
                 客户端，服务器的入口类分别为：RpcClient , RpcClientServer
 
 
+2014-12-28：
+                最终参数的打包和解析都在各种类型的IEmittingCodec中的Encode,Decode方法中，需要逐个分析了解。
+
+
 
 
 

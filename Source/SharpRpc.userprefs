@@ -1,15 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\ServerSide\ServiceImplementationContainer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\Codecs\NativeStructArrayCodec.cs">
     <Files>
-      <File FileName="SharpRpc\RpcClientServerComponentContainer.cs" Line="3" Column="3" />
-      <File FileName="SharpRpc\RpcClientServer.cs" Line="57" Column="57" />
-      <File FileName="SharpRpc\ServerSide\RequestReceiverContainer.cs" Line="2" Column="2" />
-      <File FileName="SharpRpc\ServerSide\IServiceImplementationContainer.cs" Line="53" Column="53" />
-      <File FileName="SharpRpc\Reflection\ServiceDescription.cs" Line="47" Column="47" />
-      <File FileName="SharpRpc\Reflection\MethodDescription.cs" Line="30" Column="30" />
-      <File FileName="SharpRpc\RpcClientComponentContainer.cs" Line="1" Column="1" />
-      <File FileName="SharpRpc\ServerSide\ServiceImplementationContainer.cs" Line="47" Column="47" />
+      <File FileName="SharpRpc\ServerSide\Handler\RawHandlerFactory.cs" Line="22" Column="22" />
+      <File FileName="SharpRpc\Codecs\CodecContainer.cs" Line="52" Column="52" />
+      <File FileName="SharpRpc\Codecs\NativeStructArrayCodec.cs" Line="44" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
