@@ -98,6 +98,10 @@ namespace ParseConsole.Tests
 		[Test]
 		public void TestLdarg(){
 		
+			int x = 6 ;
+
+			x = x << 3;
+
 			Type t1 = typeof(char);
 
 			bool bValue = t1.IsPrimitive;
