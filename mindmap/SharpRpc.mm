@@ -1,7 +1,7 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
 <node CREATED="1419576960326" ID="ID_1675323572" MODIFIED="1419577193382" TEXT="SharpRpc">
-<node CREATED="1419582998528" FOLDED="true" ID="ID_671033355" MODIFIED="1419831448271" POSITION="right" TEXT="TestHost">
+<node CREATED="1419582998528" ID="ID_671033355" MODIFIED="1420008394249" POSITION="right" TEXT="TestHost">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -59,8 +59,7 @@
       }
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1419578956464" ID="ID_1044812488" MODIFIED="1419732689919" TEXT="RpcClientServer">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -3093,7 +3092,7 @@
 <node CREATED="1419584704336" ID="ID_617734343" MODIFIED="1419584721073" TEXT="GetInitializedScopesFor"/>
 </node>
 </node>
-<node CREATED="1419817806121" ID="ID_506548097" MODIFIED="1419817821318" POSITION="left" TEXT="namespace">
+<node CREATED="1419817806121" FOLDED="true" ID="ID_506548097" MODIFIED="1420008810162" POSITION="left" TEXT="namespace">
 <node CREATED="1419817841209" ID="ID_755497927" MODIFIED="1419817857013" TEXT="SharpRpc.Codecs">
 <node CREATED="1419817983096" ID="ID_270426551" MODIFIED="1419819937351" TEXT="CodecContainer">
 <richcontent TYPE="NOTE"><html>
@@ -3396,8 +3395,7 @@
       &#160;&#160;&#160;&#160;}
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1419818088952" ID="ID_966237179" MODIFIED="1419818095893" TEXT="inherit from">
 <node CREATED="1419818097209" ID="ID_200115496" MODIFIED="1419831503794" TEXT="ICodecContainer">
 <richcontent TYPE="NOTE"><html>
@@ -3421,8 +3419,7 @@
       }
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1419818174904" ID="ID_1004382713" MODIFIED="1419818282090" TEXT="IEmittingCodec">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -3454,8 +3451,7 @@
       &#160;&#160;&#160;&#160;}
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1419818312713" ID="ID_325478724" MODIFIED="1419818370340" TEXT="ICodec">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -3484,8 +3480,7 @@
       &#160;&#160;&#160;&#160;}
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1419818182601" ID="ID_31794215" MODIFIED="1419818550764" TEXT="IManualCodec&lt;T&gt;">
@@ -3528,336 +3523,15 @@
       &#160;&#160;&#160;&#160;}
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
-<node CREATED="1419820031768" ID="ID_418329397" MODIFIED="1419820049780" TEXT="&#x51e0;&#x79cd;IEmittingCodec&#x7684;&#x5b9e;&#x73b0;">
+<node CREATED="1419820031768" ID="ID_418329397" MODIFIED="1419997960904" TEXT="&#x51e0;&#x79cd;IEmittingCodec&#x7684;&#x5b9e;&#x73b0;">
 <node CREATED="1419820164953" ID="ID_928569642" MODIFIED="1419845121442" TEXT="StringCodecBase">
 <font BOLD="true" NAME="SansSerif" SIZE="12"/>
-<node CREATED="1419820364728" ID="ID_521604845" MODIFIED="1419836198974" TEXT="EmitCalculateSize">
-<richcontent TYPE="NOTE">&lt;html&gt;
-  &lt;head&gt;
-    
-    
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;public void EmitCalculateSize(IEmittingContext context, 
-      Action&amp;lt;MyILGenerator&amp;gt; emitLoad)
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;{
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;var il = context.IL;
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;var &lt;font color=&quot;#660099&quot;&gt;endOfSubmethodLabel&lt;/font&gt;&amp;#160; 
-      = il.DefineLabel();
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;if (canBeNull)
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;{
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;var &lt;font color=&quot;#663300&quot;&gt;stringIsNotNullLabel&lt;/font&gt;&amp;#160;= 
-      il.DefineLabel();
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;emitLoad(il);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      // if (value)&amp;#160; &lt;b&gt;&lt;font color=&quot;#006633&quot;&gt;&amp;#25552;&amp;#21462;&amp;#36755;&amp;#20837;&amp;#21442;&amp;#25968;&amp;#30340;&amp;#20540;&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#006666&quot;&gt;il.Brtrue&lt;/font&gt;&lt;/b&gt;(stringIsNotNullLabel);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;//&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;goto 
-      stringIsNotNullLabel ,&lt;b&gt;&lt;font color=&quot;#006666&quot;&gt;OpCodes.Brtrue:&amp;#24403;&amp;#21069;&amp;#19968;&amp;#25805;&amp;#20316;&amp;#30340;&amp;#20540;&amp;#19981;&amp;#20026;0&amp;#25110;null&amp;#26102;&amp;#65292;&amp;#36339;&amp;#21040;&amp;#25351;&amp;#23450;Lable &lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;font color=&quot;#009900&quot;&gt;&amp;#160;&amp;#160;// 
-      String is null branch&lt;/font&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldc_I4(sizeof(int));&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;// &lt;b&gt;&lt;font color=&quot;#6600ff&quot;&gt;stack_0 = sizeof(int)&lt;/font&gt;&lt;/b&gt;&amp;#160;&lt;b&gt;&lt;font color=&quot;#006666&quot;&gt;Ldc_I4&amp;#26159;&amp;#19968;&amp;#20010;&amp;#23553;&amp;#35013;&amp;#26041;&amp;#27861;&amp;#65292;&amp;#20854;&amp;#25903;&amp;#25345;&amp;#20102;&amp;#25152;&amp;#26377;&amp;#30340;OpCodes.Ldc_I4...&amp;#30340;&amp;#30456;&amp;#20851;&amp;#25351;&amp;#20196;&amp;#65292;&amp;#36825;&amp;#37324;&amp;#23454;&amp;#38469;&amp;#26159;&amp;#23558;4&amp;#23384;&amp;#20837;&amp;#26632;&amp;#20013;&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Br(endOfSubmethodLabel);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// goto 
-      endOfSubmethodLabel
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// String is not null branch
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.MarkLabel(&lt;font color=&quot;#663300&quot;&gt;stringIsNotNullLabel&lt;/font&gt;);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// 
-      label stringIsNotNullLabel
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;}
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#ff3300&quot;&gt;EmitLoadAsString&lt;/font&gt;&lt;/b&gt;(il, 
-      emitLoad);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// &lt;b&gt;&lt;font color=&quot;#6600ff&quot;&gt;stack_0 
-      = (FormatToString(value).Length &amp;lt;&amp;lt; 1) + sizeof(int)&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Call(GetLength);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#006633&quot;&gt;&amp;#160;il.Shl &lt;/font&gt;&lt;/b&gt;&lt;font color=&quot;#006633&quot;&gt;&amp;#26159;&amp;#24038;&amp;#31227;&amp;#25805;&amp;#20316;&lt;content ename=&quot;content&quot; color=&quot;#006633&quot;&gt;&amp;#30456;&amp;#24403;&amp;#20110;&amp;#20056;2&amp;#30340;&amp;#19968;&amp;#27425;&amp;#26041;&amp;#65292;&amp;#20063;&amp;#23601;&amp;#26159;&amp;#20056;2,FormatToString&amp;#36825;&amp;#37324;&amp;#23454;&amp;#38469;&amp;#27809;&amp;#20219;&amp;#20309;&amp;#25805;&amp;#20316;&amp;#23601;&amp;#26159;value&amp;#21407;&amp;#20540;&amp;#12290;&lt;/font&gt;&lt;font color=&quot;#ff3300&quot;&gt;&amp;#20026;&amp;#21861;&amp;#20056;2&amp;#24453;&amp;#26597;&amp;#65292;&amp;#22240;&amp;#20026;string&amp;#26159;unicode&amp;#65292;&amp;#30456;&amp;#24403;&amp;#20110;&amp;#20004;&amp;#20010;&amp;#23383;&amp;#33410;&amp;#65292;&amp;#32780;&amp;#23558;&amp;#35201;&amp;#36716;&amp;#21040;char[]&amp;#23383;&amp;#33410;&amp;#25968;&amp;#32452;&amp;#26102;&amp;#65292;&amp;#24517;&amp;#39035;&amp;#38271;&amp;#24230;&amp;#20056;&amp;#20197;2&amp;#65292;&amp;#22240;&amp;#20026;string.length&amp;#26159;&amp;#23383;&amp;#31526;&amp;#25968;&amp;#19981;&amp;#26159;&amp;#23383;&amp;#33410;&amp;#25968;&lt;/font&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldc_I4(1);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Shl();
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldc_I4(sizeof(int));
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Add();
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.MarkLabel(&lt;font color=&quot;#660099&quot;&gt;endOfSubmethodLabel&lt;/font&gt;);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// 
-      label endOfSubmethodLabel
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;}
-    &lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</richcontent>
-</node>
-<node CREATED="1419831395065" ID="ID_916197659" MODIFIED="1419836794708" TEXT="EmitEncode">
-<richcontent TYPE="NOTE">&lt;html&gt;
-  &lt;head&gt;
-    
-    
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;public void EmitEncode(IEmittingContext context, 
-      Action&amp;lt;MyILGenerator&amp;gt; emitLoad)
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;{
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;var il = context.IL;
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;var strIsNotNullLabel = il.DefineLabel();
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;var endOfSubmethodLabel = il.DefineLabel();
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;if (canBeNull)
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;{
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;emitLoad(il);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// if (val) goto strIsNotNullLabel
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Brtrue(strIsNotNullLabel);
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// String is null branch&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldloc(context.DataPointerVar);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#6600ff&quot;&gt;&amp;#160;&amp;#160;// 
-      *(int*) data = -1&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldc_I4(-1);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;font color=&quot;#009900&quot;&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;//&amp;#23558;&amp;#25968;&amp;#20540;-1&amp;#21387;&amp;#20837;&amp;#22534;&amp;#26632;&amp;#65292;&amp;#20043;&amp;#21069;&amp;#30340;il.Ldloc(context.DataPointerVar)&amp;#23558;&amp;#24403;&amp;#21069;&amp;#25351;&amp;#38024;&amp;#23384;&amp;#20648;&amp;#30340;&amp;#22320;&amp;#22336;&amp;#21387;&amp;#20837;&amp;#22534;&amp;#26632;&lt;/font&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#006666&quot;&gt;&amp;#160;il.Stind_I4();&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;/font&gt;&lt;/b&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;font color=&quot;#009900&quot;&gt;//&amp;#23558;-1&amp;#23384;&amp;#20837;&amp;#25351;&amp;#38024;&amp;#22320;&amp;#22336;&amp;#25152;&amp;#25351;&amp;#20301;&amp;#32622;&amp;#65292;&amp;#21363;&amp;#65292;&amp;#23558;&amp;#20043;&amp;#21069;&amp;#30340;&amp;#20004;&amp;#20010;&amp;#25805;&amp;#20316;&amp;#20174;&amp;#22534;&amp;#26632;&amp;#20013;pop&amp;#20986;&amp;#26469;&amp;#21518;&amp;#25805;&amp;#20316;&amp;#36825;&amp;#20010;&amp;#36335;&amp;#22522;&lt;/font&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.IncreasePointer(context.DataPointerVar, sizeof(int)); 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#6600ff&quot;&gt;&amp;#160;// data 
-      += sizeof(int) &amp;#65292;&amp;#27880;&amp;#24847;&amp;#65306;&amp;#36825;&amp;#26159;&amp;#25351;&amp;#38024;&amp;#31227;&amp;#21160;&amp;#25805;&amp;#20316;&amp;#65292;&amp;#19981;&amp;#35201;&amp;#29702;&amp;#35299;&amp;#20026;&amp;#36171;&amp;#20540;&amp;#65281;&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Br(endOfSubmethodLabel);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// goto endOfEncodeLabel
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// String is not null branch
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.MarkLabel(strIsNotNullLabel);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// label strIsNotNullLabel
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;}
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;var stringValueVar = 
-      context.GetSharedVariable&amp;lt;string&amp;gt;(&amp;quot;stringValue&amp;quot;);&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#6600ff&quot;&gt;// 
-      var stringValue = FormatToString(value)&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;EmitLoadAsString(il, emitLoad);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Stloc(stringValueVar);
-    &lt;/p&gt;
-    &lt;p&gt;
-      
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;var tempIntegerVar = 
-      context.GetSharedVariable&amp;lt;int&amp;gt;(&amp;quot;tempInteger&amp;quot;);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#6600ff&quot;&gt;&amp;#160;// 
-      var tempInteger = stringValue.Length &amp;lt;&amp;lt; 1&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldloc(stringValueVar);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Call(GetLength);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldc_I4(1);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Shl();
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Stloc(tempIntegerVar);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldloc(context.DataPointerVar);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#6600ff&quot;&gt;// 
-      *(int*)data = tempInteger&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldloc(tempIntegerVar);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Stind_I4();
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.IncreasePointer(context.DataPointerVar, sizeof(int));&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#6600ff&quot;&gt;// 
-      data += sizeof(int)&amp;#65292;&amp;#27880;&amp;#24847;&amp;#65306;&amp;#36825;&amp;#26159;&amp;#25351;&amp;#38024;&amp;#31227;&amp;#21160;&amp;#25805;&amp;#20316;&amp;#65292;&amp;#19981;&amp;#35201;&amp;#29702;&amp;#35299;&amp;#20026;&amp;#36171;&amp;#20540;&amp;#65281;&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;var pinnedString = il.DeclareLocal(typeof(string), &lt;b&gt;&lt;font color=&quot;#ff3300&quot;&gt;true&lt;/font&gt;&lt;/b&gt;);&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;font color=&quot;#009900&quot;&gt;// &lt;/font&gt;&lt;b&gt;&lt;font color=&quot;#6600ff&quot;&gt;var 
-      pinned pinnedString = stringValue&lt;/font&gt;&lt;/b&gt;&lt;font color=&quot;#009900&quot;&gt;&amp;#160;,&amp;#22768;&amp;#26126;&amp;#20026;&lt;/font&gt;&lt;b&gt;&lt;font color=&quot;#ff3300&quot;&gt;pinned&lt;/font&gt;&lt;/b&gt;&lt;font color=&quot;#009900&quot;&gt;&amp;#21464;&amp;#37327;&amp;#24456;&amp;#37325;&amp;#35201;&amp;#65292;&amp;#36825;&amp;#26679;&amp;#25165;&amp;#33021;&amp;#34987;unmanaged&amp;#25351;&amp;#38024;&amp;#35775;&amp;#38382;&amp;#65292;&amp;#19981;&amp;#20250;&amp;#34987;&amp;#22403;&amp;#22334;&amp;#22238;&amp;#25910;&amp;#22120;&amp;#22238;&amp;#25910;&lt;/font&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldloc(stringValueVar);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Stloc(pinnedString);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldloc(pinnedString);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#009900&quot;&gt;// 
-      stack_0 = (byte*)pinnedString &amp;#65292;&amp;#20043;&amp;#21069;&amp;#30340;pinnedString = 
-      stringValue&amp;#23454;&amp;#38469;&amp;#26159;&amp;#22320;&amp;#22336;&amp;#36171;&amp;#20540;&amp;#32780;&amp;#24050;&amp;#65292;&amp;#27880;&amp;#24847;,string&amp;#26159;&amp;#24341;&amp;#29992;&amp;#31867;&amp;#22411;!&amp;#65292;&amp;#25152;&amp;#20197;&amp;#36825;&amp;#37324;&amp;#23601;&amp;#26159;&amp;#23558;&amp;#22320;&amp;#22336;&amp;#24378;&amp;#21046;&amp;#36716;&amp;#25442;&amp;#20026;&amp;#23383;&amp;#33410;&amp;#25351;&amp;#38024;&amp;#31867;&amp;#22411;&amp;#65292;&amp;#26159;&amp;#23436;&amp;#20840;&amp;#27491;&amp;#30830;&amp;#28404;&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Conv_I();&amp;#160; &lt;b&gt;&lt;font color=&quot;#663300&quot;&gt;//&amp;#23558;pinnedString&amp;#24378;&amp;#34892;&amp;#36716;&amp;#25442;&amp;#20026;native 
-      int,&amp;#20134;&amp;#21363;&amp;#33719;&amp;#21462;&amp;#27491;&amp;#30830;&amp;#30340;pinnedString&amp;#30340;&amp;#22320;&amp;#22336;&amp;#20540;&amp;#65292;&amp;#20415;&amp;#20110;&amp;#21518;&amp;#32493;&amp;#25351;&amp;#38024;&amp;#25805;&amp;#20316;&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Call(GetOffsetToStringData);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// stack_0 = stack_0 +
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Add();&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;//&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#009999&quot;&gt;&amp;#160;&amp;#160;RuntimeHelpers.OffsetToStringData&amp;#160; 
-      ,&amp;#24494;&amp;#36719;&amp;#25552;&amp;#20379;&amp;#30340;&amp;#65292;&amp;#22312;unsafe&amp;#26465;&amp;#20214;&amp;#19979;&amp;#39640;&amp;#25928;&amp;#20351;&amp;#29992;&amp;#25351;&amp;#38024;&amp;#25805;&amp;#20316;mananged string(&amp;#35813;managed string &amp;#24517;&amp;#39035;&amp;#22768;&amp;#26126;&amp;#20026;pinned) 
-      &amp;#65306;&amp;#35813;&amp;#26041;&amp;#27861;&amp;#26159;&amp;#25552;&amp;#20379;string object &amp;#20013;&amp;#24320;&amp;#22987;&amp;#21040;&amp;#31532;&amp;#19968;&amp;#20010;&amp;#23383;&amp;#31526;&amp;#38388;&amp;#30340;offset!&amp;#65292;&amp;#36825;&amp;#20043;&amp;#38388;&amp;#24212;&amp;#35813;&amp;#26377;&amp;#20854;&amp;#20182;&amp;#39069;&amp;#22806;&lt;content ename=&quot;content&quot;&gt;&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#009999&quot;&gt;&amp;#22836;&amp;#20449;&amp;#24687;&amp;#31561;&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;var charPointer = context.GetSharedVariable(typeof(char*), 
-      &amp;quot;charPointer&amp;quot;);// charPointer = stack_0
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Stloc(charPointer);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldloc(context.DataPointerVar);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// cpblk(data, charPointer, tempInteger)
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldloc(charPointer);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldloc(tempIntegerVar);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Cpblk();
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Ldnull();&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// pinnedString = null
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.Stloc(pinnedString);
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.IncreasePointer(context.DataPointerVar, tempIntegerVar);&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&lt;b&gt;&lt;font color=&quot;#6600ff&quot;&gt;// 
-      data += tempInteger &amp;#65292;&amp;#27880;&amp;#24847;&amp;#65306;&amp;#36825;&amp;#26159;&amp;#25351;&amp;#38024;&amp;#31227;&amp;#21160;&amp;#25805;&amp;#20316;&amp;#65292;&amp;#19981;&amp;#35201;&amp;#29702;&amp;#35299;&amp;#20026;&amp;#36171;&amp;#20540;&amp;#65281;&lt;/font&gt;&lt;/b&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;il.MarkLabel(endOfSubmethodLabel);&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;// label endOfSubmethodLabel
-    &lt;/p&gt;
-    &lt;p&gt;
-      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;}
-    &lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</richcontent>
-</node>
+<node CREATED="1419820364728" ID="ID_521604845" MODIFIED="1419901774111" TEXT="EmitCalculateSize"/>
+<node CREATED="1419831395065" ID="ID_916197659" MODIFIED="1419901777657" TEXT="EmitEncode"/>
 <node CREATED="1419831400826" ID="ID_1875811135" MODIFIED="1419841437529" TEXT="EmitDecode">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -4039,10 +3713,9 @@
       &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
-<node CREATED="1419838923018" FOLDED="true" ID="ID_1076947438" MODIFIED="1419845129279" TEXT="&#x51e0;&#x4e2a;&#x70b9;">
+<node CREATED="1419838923018" FOLDED="true" ID="ID_1076947438" MODIFIED="1420004592285" TEXT="&#x51e0;&#x4e2a;&#x70b9;">
 <node CREATED="1419838928138" ID="ID_1385400465" MODIFIED="1419839232417" TEXT="string&#x662f;unicode&#x5b57;&#x7b26;&#xff0c;&#x5f15;&#x7528;&#x7c7b;&#x578b;&#xff0c;&#x800c;char[]&#x662f;&#x5b57;&#x8282;&#x6570;&#x7ec4;&#xff0c;unicode&#x5b57;&#x7b26;&#x5360;&#x7528;&#x4e24;&#x4e2a;&#x5b57;&#x8282;,string.length&#x8fd4;&#x56de;&#x7684;&#x53ea;&#x662f;&#x5b57;&#x7b26;&#x6570;">
 <node CREATED="1419839193866" ID="ID_1637188472" MODIFIED="1419839265539" TEXT="Encode&#x65f6;&#xff0c;string -&gt; char[]&#xff0c;&#x957f;&#x5ea6;&#x8981;&#x4e58;&#x4ee5;2"/>
 <node CREATED="1419839235978" ID="ID_112402733" MODIFIED="1419839277018" TEXT="Decode&#x65f6;&#xff0c;char[]-&gt;string,&#x957f;&#x5ea6;&#x8981;&#x9664;2&#x6765;new string"/>
@@ -4050,8 +3723,17 @@
 <node CREATED="1419838974202" ID="ID_97256375" MODIFIED="1419839037730" TEXT="&#x6307;&#x9488;&#x64cd;&#x4f5c;mananged &#x53d8;&#x91cf;&#xff0c;&#x5fc5;&#x987b;&#x5c06;&#x8be5;&#x53d8;&#x91cf;&#x58f0;&#x660e;&#x4e3a;pin&#xff0c;&#x624d;&#x4e0d;&#x4f1a;&#x5bfc;&#x81f4;&#x5783;&#x573e;&#x56de;&#x6536;&#x5668;&#x56de;&#x6536;"/>
 </node>
 </node>
-<node CREATED="1419845057994" ID="ID_1997191857" MODIFIED="1419845092127" TEXT="FieldsCodec"/>
-<node CREATED="1419845066362" ID="ID_305581359" MODIFIED="1419845095144" TEXT="DataContractCodec"/>
+<node CREATED="1420005768201" ID="ID_1948523890" MODIFIED="1420005790493" TEXT="StructualCodeBase">
+<node CREATED="1419845066362" ID="ID_305581359" MODIFIED="1420006423007" TEXT="DataContractCodec">
+<node CREATED="1420005822678" ID="ID_1398147890" MODIFIED="1420005834297" TEXT="StructualCodeBase&lt;PropertyInfo&gt;"/>
+</node>
+<node BACKGROUND_COLOR="#ffffcc" CREATED="1419845057994" ID="ID_1997191857" MODIFIED="1420007846692" TEXT="FieldsCodec">
+<font BOLD="true" NAME="SansSerif" SIZE="12"/>
+<node CREATED="1420005804200" ID="ID_1410665205" MODIFIED="1420005817153" TEXT="StructualCodeBase&lt;FieldInfo&gt;"/>
+<node CREATED="1420006381446" ID="ID_314857016" MODIFIED="1420006416801" TEXT="&#x5efa;&#x8bae;&#x91c7;&#x7528;struct&#xff0c;&#x652f;&#x6301;&#x5d4c;&#x5957;&#xff0c;&#x4e5f;&#x652f;&#x6301;&#x5404;&#x7c7b;int[],float[]...&#x7b49;"/>
+<node CREATED="1420007378406" ID="ID_302894289" MODIFIED="1420007386172" TEXT="&#x91cd;&#x70b9;&#x6d4b;&#x8bd5;&#x7684;&#x7c7b;"/>
+</node>
+</node>
 </node>
 <node CREATED="1419839321866" ID="ID_1826234020" MODIFIED="1419839603577" TEXT="Encode/Decode&#x6d41;&#x7a0b;">
 <richcontent TYPE="NOTE"><html>
@@ -4072,8 +3754,7 @@
       &#36825;&#37324;&#26041;&#27861;&#30340;&#21442;&#25968;&#38598;&#21512;Parameters&#30340;&#39034;&#24207;&#26159;&#22266;&#23450;&#30340;&#65292;&#25152;&#20197;&#65292;Encode/Decode&#20063;&#23558;&#25353;&#29031;&#21516;&#26679;&#30340;&#39034;&#24207;&#36827;&#34892;&#22788;&#29702;&#65292;&#27599;&#20010;&#21442;&#25968;&#23545;&#24212;&#30340;&#23383;&#33410;&#25968;&#32452;&#20449;&#24687;&#20026;&#65306;<b><font color="#009900">&#25968;&#25454;&#38271;&#24230;+&#20855;&#20307;&#25968;&#25454;</font></b>&#12290;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -4084,6 +3765,20 @@
 <node CREATED="1419817921658" ID="ID_1695211005" MODIFIED="1419817922784" TEXT="SharpRpc.ServerSide">
 <node CREATED="1419817924441" ID="ID_502693193" MODIFIED="1419817934957" TEXT="SharpRpc.ServerSide.Handler"/>
 </node>
+</node>
+<node CREATED="1420007875671" FOLDED="true" ID="ID_1140460373" MODIFIED="1420008808458" POSITION="right" TEXT="&#x5927;&#x81f4;&#x6d41;&#x7a0b;&#x63cf;&#x8ff0;">
+<node CREATED="1420007883558" ID="ID_1301552991" MODIFIED="1420007895257" TEXT="define interface">
+<node CREATED="1420007897558" ID="ID_1633729482" MODIFIED="1420007924992" TEXT="create proxyclass implement interface">
+<node CREATED="1420007927382" ID="ID_1239848333" MODIFIED="1420007999872" TEXT="1&#x3001;convert every arg into one byte[] (proxymethodemttingcontext.dataPointerVar)"/>
+<node CREATED="1420008001478" ID="ID_243343800" MODIFIED="1420008037223" TEXT="2&#x3001;invoke  sendProcessor send this byte[] to remoting server and wait result"/>
+</node>
+<node CREATED="1420008478950" ID="ID_184663451" MODIFIED="1420008494761" TEXT="receiver ">
+<node CREATED="1420008501590" ID="ID_1882250612" MODIFIED="1420008534470" TEXT="get entire data and init requestprocessor">
+<node CREATED="1420008688870" ID="ID_626065013" MODIFIED="1420008725282" TEXT="create handler then invoke real server method then convert into byte[] then repsonse to client"/>
+</node>
+</node>
+</node>
+<node BACKGROUND_COLOR="#99ff99" CREATED="1420008764230" ID="ID_1072036099" MODIFIED="1420008802276" TEXT="&#x8bf4;&#x767d;&#x4e86;&#xff0c;&#x5b9e;&#x73b0;&#x4e00;&#x4e2a;&#x5ba2;&#x6237;&#x7aef;&#xff0c;&#x670d;&#x52a1;&#x7aef;&#x7684;sender &#x548c; receiver&#x5373;&#x53ef;"/>
 </node>
 </node>
 </map>
