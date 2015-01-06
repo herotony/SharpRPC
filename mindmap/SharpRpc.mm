@@ -1,7 +1,7 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
 <node CREATED="1419576960326" ID="ID_1675323572" MODIFIED="1419577193382" TEXT="SharpRpc">
-<node CREATED="1419582998528" ID="ID_671033355" MODIFIED="1420008394249" POSITION="right" TEXT="TestHost">
+<node CREATED="1419582998528" FOLDED="true" ID="ID_671033355" MODIFIED="1420512823210" POSITION="right" TEXT="TestHost">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -3092,7 +3092,7 @@
 <node CREATED="1419584704336" ID="ID_617734343" MODIFIED="1419584721073" TEXT="GetInitializedScopesFor"/>
 </node>
 </node>
-<node CREATED="1419817806121" FOLDED="true" ID="ID_506548097" MODIFIED="1420008810162" POSITION="left" TEXT="namespace">
+<node CREATED="1419817806121" ID="ID_506548097" MODIFIED="1420512849424" POSITION="left" TEXT="namespace">
 <node CREATED="1419817841209" ID="ID_755497927" MODIFIED="1419817857013" TEXT="SharpRpc.Codecs">
 <node CREATED="1419817983096" ID="ID_270426551" MODIFIED="1419819937351" TEXT="CodecContainer">
 <richcontent TYPE="NOTE"><html>
@@ -3766,7 +3766,7 @@
 <node CREATED="1419817924441" ID="ID_502693193" MODIFIED="1419817934957" TEXT="SharpRpc.ServerSide.Handler"/>
 </node>
 </node>
-<node CREATED="1420007875671" FOLDED="true" ID="ID_1140460373" MODIFIED="1420008808458" POSITION="right" TEXT="&#x5927;&#x81f4;&#x6d41;&#x7a0b;&#x63cf;&#x8ff0;">
+<node CREATED="1420007875671" FOLDED="true" ID="ID_1140460373" MODIFIED="1420512845945" POSITION="right" TEXT="&#x5927;&#x81f4;&#x6d41;&#x7a0b;&#x63cf;&#x8ff0;">
 <node CREATED="1420007883558" ID="ID_1301552991" MODIFIED="1420007895257" TEXT="define interface">
 <node CREATED="1420007897558" ID="ID_1633729482" MODIFIED="1420007924992" TEXT="create proxyclass implement interface">
 <node CREATED="1420007927382" ID="ID_1239848333" MODIFIED="1420007999872" TEXT="1&#x3001;convert every arg into one byte[] (proxymethodemttingcontext.dataPointerVar)"/>

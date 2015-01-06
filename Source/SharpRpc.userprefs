@@ -1,6 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\ServerSide\TcpRequestReceiver.cs">
+    <Files>
+      <File FileName="ParseConsole\Program.cs" Line="35" Column="35" />
+      <File FileName="SharpRpc\ClientSide\TcpRequestSender.cs" Line="46" Column="46" />
+      <File FileName="SharpRpc\ServerSide\HttpRequestReceiver.cs" Line="30" Column="30" />
+      <File FileName="SharpRpc\ServerSide\TcpRequestReceiver.cs" Line="33" Column="33" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="208" column="1" />

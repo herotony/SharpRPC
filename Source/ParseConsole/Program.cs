@@ -1,56 +1,95 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.Threading;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Sockets;
+using System.Text;
 using System.Threading.Tasks;
 
-
-namespace ParseConsole
+namespace ConsoleApplication2
 {
-	class MainClass
+	class Program
 	{
-		//[STAThread]
-		public static void Main (string[] args)
-		{
-//			Application.EnableVisualStyles ();
-//			Application.SetCompatibleTextRenderingDefault (false);
-//
-//			var ctx = SynchronizationContext.Current;
-//
-//			if (ctx == null)
-//				MessageBox.Show ("not context for this thread");
-//			else
-//				MessageBox.Show ("we got a context");
-//
-//			Form form = new Form ();
-//
-//			ctx = SynchronizationContext.Current;
-//
-//			if (ctx == null)
-//				MessageBox.Show ("not context for this thread!");
-//			else
-//				MessageBox.Show ("we got a context!");
-//
-//			Application.Run (new Form ());
+		static TcpListener tcpListener = TcpListener.Create(1234);
 
-			method ();
-			Console.WriteLine ("Hello World!");
-			Console.ReadKey ();
+		static void Main(string[] args)
+		{
+			tcpListener.Start();
+
+			Accept();
+			ConnectAsTcpClient();
+			Console.WriteLine ("blabla");
+			string again = Console.ReadLine();
+
+			while (again.Equals ("try")) {
+
+				for (int i = 0; i < 3; i++) {
+
+					ConnectAsTcpClient ();
+				}
+
+
+				again = Console.ReadLine ();
+			}
+
+			Console.ReadLine ();
 		}
 
-		//加了async/await,则整个method方法都必须等待Task.Run的返回
-		//亦即，method已经不属于主线程了，这在UI编程上倒是很方便了。
-		private static async  void method(){
+		private static async void ConnectAsTcpClient()
+		{
+			using (var tcpClient = new TcpClient())
+			{
+				Console.WriteLine("[Client] Connecting to server");
+				//await tcpClient.ConnectAsync("127.0.0.1", 1234);
 
-			//await决定了方法method不会block调用者Main,但method本身的后续部分则必须等待其完成。
-			await Task.Run(() => {
+				var task = tcpClient.ConnectAsync("121.0.0.1", 1234);
 
-				Thread.Sleep(10000);
-				Console.WriteLine("run over!");
+				task.Wait (10000);
+				if (!task.IsCompleted) {
+					Console.WriteLine ("timeout");
+					throw new TimeoutException ();
+				}
 
-			});
+				Console.WriteLine("[Client] Connected to server");
+				using (var networkStream = tcpClient.GetStream())
+				{
+					Console.WriteLine("[Client] Writing request {0}", ClientRequestString);
+					await networkStream.WriteAsync(ClientRequestBytes, 0, ClientRequestBytes.Length);
 
-			Console.WriteLine (" in method");
+					var buffer = new byte[4096];
+					var byteCount = await networkStream.ReadAsync(buffer, 0, buffer.Length);
+					var response = Encoding.UTF8.GetString(buffer, 0, byteCount);
+					Console.WriteLine("[Client] Server response was {0}", response);
+				}
+			}
+		}
 
+		private static readonly string ClientRequestString = "Some HTTP request here";
+		private static readonly byte[] ClientRequestBytes = Encoding.UTF8.GetBytes(ClientRequestString);
+
+		private static readonly string ServerResponseString = "<?xml version=\"1.0\" encoding=\"utf-8\"?><document><userkey>key</userkey> <machinemode>1</machinemode><serial>0000</serial><unitname>Device</unitname><version>1</version></document>\n";
+		private static readonly byte[] ServerResponseBytes = Encoding.UTF8.GetBytes(ServerResponseString);
+
+
+		private static async void Accept()
+		{		
+			var tcpClient = await tcpListener.AcceptTcpClientAsync();
+
+			//启动下次监听
+			Accept ();
+
+			Console.WriteLine("[Server] Client has connected");
+			using (var networkStream = tcpClient.GetStream())
+			{
+
+				var buffer = new byte[4096];
+				Console.WriteLine("[Server] Reading from client");
+				var byteCount = await networkStream.ReadAsync(buffer, 0, buffer.Length);
+				var request = Encoding.UTF8.GetString(buffer, 0, byteCount);
+				Console.WriteLine("[Server] Client wrote {0}", request);
+				await networkStream.WriteAsync(ServerResponseBytes, 0, ServerResponseBytes.Length);
+				Console.WriteLine("[Server] Response has been written");
+			}
 		}
 	}
 }
+

@@ -193,6 +193,8 @@
     <Compile Include="Utility\ScopeKey.cs" />
     <Compile Include="Utility\StreamExtensions.cs" />
     <Compile Include="Utility\ThreadGuard.cs" />
+    <Compile Include="ClientSide\TcpRequestSender.cs" />
+    <Compile Include="ServerSide\TcpRequestReceiver.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
