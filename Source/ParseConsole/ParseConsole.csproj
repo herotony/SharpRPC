@@ -41,4 +41,10 @@
   <ItemGroup>
     <None Include="分析日志记录.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpRpc\SharpRpc.csproj">
+      <Project>{2C63C96E-39CB-4812-A105-866BBEA4D6B3}</Project>
+      <Name>SharpRpc</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

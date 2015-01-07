@@ -91,4 +91,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="TcpChannel\" />
+  </ItemGroup>
 </Project>

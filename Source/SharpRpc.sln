@@ -29,8 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseConsole.Tests", "Parse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parse.Rpc.StepByStep", "Parse.Rpc.StepByStep\Parse.Rpc.StepByStep.csproj", "{D9D38405-33B2-4E61-9CB3-389091010037}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpManager", "TcpManager\TcpManager.csproj", "{BC2B8BF3-D4B0-43FC-8DC9-2CF3E57FD650}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,12 +109,6 @@ Global
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC2B8BF3-D4B0-43FC-8DC9-2CF3E57FD650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC2B8BF3-D4B0-43FC-8DC9-2CF3E57FD650}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC2B8BF3-D4B0-43FC-8DC9-2CF3E57FD650}.Default|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC2B8BF3-D4B0-43FC-8DC9-2CF3E57FD650}.Default|Any CPU.Build.0 = Debug|Any CPU
-		{BC2B8BF3-D4B0-43FC-8DC9-2CF3E57FD650}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC2B8BF3-D4B0-43FC-8DC9-2CF3E57FD650}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D9D38405-33B2-4E61-9CB3-389091010037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D9D38405-33B2-4E61-9CB3-389091010037}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9D38405-33B2-4E61-9CB3-389091010037}.Default|Any CPU.ActiveCfg = Debug|Any CPU

@@ -37,29 +37,40 @@ namespace SharpRpc.ClientSide
 				var uri = string.Format("tcp://{0}:{1}/{2}?scope={3}", host, port, request.Path, request.ServiceScope); 
 
 				byte[] uriByte = Encoding.UTF8.GetBytes (uri);
+				byte[] lenInfoByte = BitConverter.GetBytes(uriByte.Length);
+
 				byte[] transfer = new byte[512+request.Data.Length];
 
 				Array.Copy (uriByte, 0, transfer, 0, uriByte.Length);
+				Array.Copy (lenInfoByte, 0, transfer, 512 - sizeof(int), lenInfoByte.Length);
 
 				if(request.Data.Length>0)
 					Array.Copy (request.Data, 0, transfer, 512, request.Data.Length);
 								
 				await networkStream.WriteAsync (transfer, 0, transfer.Length);
 
-				//一次请求超过1兆就TM该毙掉
+				//一次请求返回数据超过1兆就TM该毙掉
 				var buff = new byte[1024*1024];
 
 				var byteCount = await networkStream.ReadAsync (buff, 0, buff.Length);
 
-				result = new byte[byteCount-4];
+				if (byteCount < sizeof(int)) {
 
-				int realDataLength = byteCount - 4;
+					return new Response (ResponseStatus.Exception, new byte[0]);
+				}
+
+				int realDataLength = byteCount - sizeof(int);
+
+				result = new byte[realDataLength];
 
 				if(realDataLength>0)
-					Array.Copy (buff, 4, result, 0, realDataLength);		
+					Array.Copy (buff, sizeof(int), result, 0, realDataLength);		
 
-				string statusInfo = Encoding.UTF8.GetString (buff, 0, 4);
-				status = (ResponseStatus)int.Parse (statusInfo);
+				byte[] statusByte = new byte[sizeof(int)];
+
+				Array.Copy (buff, 0, statusByte,0, sizeof(int));
+
+				status = (ResponseStatus)BitConverter.ToInt32(statusByte,0);
 			}				
 
 			return new Response (status, result);
