@@ -13,7 +13,7 @@ namespace SharpRpc.TestCommon
 
 			Random rand = new Random ();
 
-			for (int i = 0; i < 30; i++) {
+			for (int i = 0; i < 3; i++) {
 
 				Student st = new Student ();
 

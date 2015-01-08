@@ -46,11 +46,12 @@ namespace SharpRpc.TestClient
         static void Main(string[] args)
         {
 			//TestMyService();
+
 			try{
 
-				logProgram.Info("start");
-			
-					TestComplex2 ();
+				logProgram.Info("start");			
+
+					TestComplex ();
 
 				logProgram.Info("end");
 
@@ -60,6 +61,8 @@ namespace SharpRpc.TestClient
 
 				logProgram.Error (message);
 			}
+
+			Console.ReadKey ();
 
         }
 
@@ -77,34 +80,40 @@ namespace SharpRpc.TestClient
 
 			Console.WriteLine (string.Format ("init proxy instance consume:{0} ms", sw.ElapsedMilliseconds));
 
-			object lockobj = new object ();
-
 
 			sw.Restart ();
 			int totalCount = 0;
 
-			for (int i = 0; i < 100; i++) {
-			
-				Task.Factory.StartNew (() => {
-				
-					int k = i;
+			int[] ints = new int[10];
 
-					logProgram.InfoFormat("k={0}",k);
+//			Parallel.For (0, ints.Length, (i) => {
+//
+//				logProgram.Info(Task.CurrentId);
+//
+//				byte[] result = null;
+//
+//				result = complexService.GetStudentList (new byte[1]);
+//
+//				List<Student> list = Google.ProtoBuf.Serializer.Deserialize<List<Student>> (new MemoryStream (result));
+//
+//				logProgram.Info(string.Format("list:{0} on {1}",list.Count,Task.CurrentId));
+//
+//			});
+
+			for (int i = 0; i < 10; i++) {
+			
+				Task.Run (() => {
+																
 
 					logProgram.Info(Task.CurrentId);
 
 					byte[] result = null;
-
-					lock(lockobj){
-
-						
-						result = complexService.GetStudentList (new byte[1]);
-					}
+											
+					result = complexService.GetStudentList (new byte[1]);
 
 					List<Student> list = Google.ProtoBuf.Serializer.Deserialize<List<Student>> (new MemoryStream (result));
 
-					logProgram.Info(string.Format("list:{0} on {1}  with i=={2}",list.Count,Task.CurrentId,k));
-					totalCount++;
+					logProgram.Info(string.Format("list:{0} on {1}",list.Count,Task.CurrentId));
 				});
 			}
 
@@ -153,15 +162,15 @@ namespace SharpRpc.TestClient
 
 			logProgram.Info (string.Format ("总耗时:{0}毫秒", sw.ElapsedMilliseconds));
 				
-			Console.ReadKey ();
+
 
 			logProgram.InfoFormat ("total:{0}", totalCount);
 
-
-			Console.ReadKey ();
+			//Console.ReadKey ();
+			//Console.ReadKey ();
 
 		}
-
+			
 
 		private static void TestComplex2(){
 
@@ -170,7 +179,7 @@ namespace SharpRpc.TestClient
 
 
 
-//			Thread[] ths = new Thread[10000];
+			Thread[] ths = new Thread[10];
 
 			logProgram.Info ("th waiting for start!");
 
@@ -178,30 +187,36 @@ namespace SharpRpc.TestClient
 
 			sw.Start ();
 
-//			for (int i = 0; i < ths.Length; i++) {
-//
-//				ThreadPool.QueueUserWorkItem (new WaitCallback (Run), complexService);
-//
-////				ths [i] = new Thread(new ParameterizedThreadStart (Run));
-////				ths [i].Start (complexService);
-//			}
+			for (int i = 0; i < ths.Length; i++) {
 
-			for (int i = 0; i < 10000; i++) {
-
-				byte[] result = null;
-
-				logProgram.InfoFormat ("start on {0}", Thread.CurrentThread.ManagedThreadId);
-
+				//ThreadPool.QueueUserWorkItem (new WaitCallback (Run), complexService);
 				var complexService = client.GetService<IComplexService> ();
-
-				result = complexService.GetStudentList (new byte[1]);
-
-				List<Student> list = Google.ProtoBuf.Serializer.Deserialize<List<Student>> (new MemoryStream (result));
-
-				logProgram.Info(string.Format("list:{0} on {1} ",list.Count,Thread.CurrentThread.ManagedThreadId));
-
+				ths [i] = new Thread(new ParameterizedThreadStart (Run));
+				ths [i].Start (complexService);
 			}
 
+
+
+//			Stopwatch sw1 = new Stopwatch ();
+//
+//			for (int i = 0; i < 100; i++) {
+//
+//				sw1.Start ();
+//				byte[] result = null;
+//
+//				var complexService = client.GetService<IComplexService> ();
+//				logProgram.InfoFormat ("start on {0}", Thread.CurrentThread.ManagedThreadId);
+//
+//				result = complexService.GetStudentList (new byte[1]);
+//
+//				List<Student> list = Google.ProtoBuf.Serializer.Deserialize<List<Student>> (new MemoryStream (result));
+//
+//				logProgram.Info(string.Format("list:{0} on {1} 耗时:{2}毫秒 ",list.Count,Thread.CurrentThread.ManagedThreadId,sw1.ElapsedMilliseconds));
+//
+//				sw1.Reset ();
+//
+//			}
+//
 			logProgram.InfoFormat ("TestComplex2 耗时:{0} 毫秒", sw.ElapsedMilliseconds);
 
 			Console.ReadKey ();
@@ -228,9 +243,7 @@ namespace SharpRpc.TestClient
 			}catch(Exception e){
 
 				logProgram.Error (null, e);
-			}
-
-
+			}				
 		}
 
 		private static void TestMyService(){

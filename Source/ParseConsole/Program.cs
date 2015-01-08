@@ -38,6 +38,8 @@ namespace ConsoleApplication2
 //			}
 //
 //			Console.ReadLine ();
+			int valuenumber = 200;
+			byte[] t = BitConverter.GetBytes (valuenumber);
 
 			ILogger log = new ConsoleLogger ();
 

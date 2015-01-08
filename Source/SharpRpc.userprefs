@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\ServerSide\RequestReceiverContainer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\ServerSide\TcpRequestReceiver.cs">
     <Files>
-      <File FileName="SharpRpc\ClientSide\RequestSenderContainer.cs" Line="5" Column="5" />
-      <File FileName="SharpRpc\ServerSide\RequestReceiverContainer.cs" Line="16" Column="16" />
+      <File FileName="SharpRpc.TestClient\Program.cs" Line="4" Column="4" />
+      <File FileName="SharpRpc\ClientSide\TcpRequestSender.cs" Line="25" Column="25" />
+      <File FileName="SharpRpc\ServerSide\TcpRequestReceiver.cs" Line="19" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -15,7 +16,10 @@
       <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="109" column="1" />
       <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="105" column="1" />
       <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="103" column="1" />
+      <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole\Program.cs" line="44" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="SharpRpc\ServerSide\TcpRequestReceiver.cs" line="89" offsetX="664" offsetY="1672" expression="request" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

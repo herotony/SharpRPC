@@ -40,7 +40,7 @@ namespace SharpRpc.ServerSide
 
 						Thread.Sleep(10);
 						continue;
-					}
+					}						
 
 					AcceptClient();
 				}
@@ -57,7 +57,6 @@ namespace SharpRpc.ServerSide
 			}
 
 			logger.Info("Listener has finished working");
-
 		}
 
 		private  async void AcceptClient(){
@@ -67,6 +66,8 @@ namespace SharpRpc.ServerSide
 			using (var networkSteam = tcpClient.GetStream ()) {
 
 				byte[] buff = new byte[1024 * 1024];
+				byte[] statusByte = new byte[0];
+				byte[] responseByte = new byte[0];
 
 				var byteCount = await networkSteam.ReadAsync (buff, 0, buff.Length);
 
@@ -76,8 +77,8 @@ namespace SharpRpc.ServerSide
 
 					logger.Error (string.Format("Failed to decode request! on {0}", tcpClient.Client.RemoteEndPoint));	
 
-					byte[] statusByte = BitConverter.GetBytes((int)ResponseStatus.BadRequest);
-					byte[] responseByte = new byte[sizeof(int)];
+					statusByte = BitConverter.GetBytes((int)ResponseStatus.BadRequest);
+					responseByte = new byte[sizeof(int)];
 
 					Array.Copy (statusByte, 0, responseByte, 0, statusByte.Length);
 
@@ -88,8 +89,8 @@ namespace SharpRpc.ServerSide
 					//处理请求
 					var response = await requestProcessor.Process(request);
 
-					byte[] statusByte =  BitConverter.GetBytes((int)response.Status);
-					byte[] responseByte = new byte[sizeof(int) + response.Data.Length];
+					statusByte = BitConverter.GetBytes((int)response.Status);
+					responseByte = new byte[sizeof(int) + response.Data.Length];
 
 					Array.Copy (statusByte, 0, responseByte, 0, statusByte.Length);
 					Array.Copy (response.Data, 0, responseByte, sizeof(int), response.Data.Length);
@@ -112,13 +113,7 @@ namespace SharpRpc.ServerSide
 			int headStrLen = BitConverter.ToInt32 (lenByte, 0);
 			string headStr = Encoding.UTF8.GetString (requestData, 0, headStrLen);
 
-			logger.Info (string.Format ("headStr:{0}", headStr));
-
-			int k = headStr.TrimEnd().Length;
-
 			Uri uri  = new Uri(headStr.TrimEnd ());
-
-			logger.Info (string.Format ("uri-localpath:{0}", uri.LocalPath));
 
 			ServicePath servicePath;
 			if (!ServicePath.TryParse(uri.LocalPath, out servicePath))

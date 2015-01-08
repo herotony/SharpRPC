@@ -91,7 +91,7 @@ namespace SharpRpc.ClientSide
                 }
                 catch (Exception ex)
                 {
-                    throw new ServiceNetworkException(string.Format("Sending a '{0}' request to {1} failed", pathSeparatedBySlashes, endPoint), ex);
+					throw new ServiceNetworkException(string.Format("Sending a '{0}' request to {1} failed for {2}", pathSeparatedBySlashes, endPoint,ex.Message), ex);
                 }
 
                 switch (response.Status)

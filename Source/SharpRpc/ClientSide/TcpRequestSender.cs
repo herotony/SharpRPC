@@ -9,12 +9,6 @@ namespace SharpRpc.ClientSide
 {
 	public class TcpRequestSender : IRequestSender
 	{
-		private readonly ConcurrentDictionary<int, Lazy<TcpClient>> tcpClients;
-
-		public TcpRequestSender ()
-		{
-			tcpClients = new ConcurrentDictionary<int, Lazy<TcpClient>> ();
-		}
 
 		private const int NoTimeout = -1;
 
@@ -22,7 +16,7 @@ namespace SharpRpc.ClientSide
 
 			int timeout = timeoutMilliseconds ?? NoTimeout;
 
-			var tcpClient = tcpClients.GetOrAdd (timeoutMilliseconds ?? NoTimeout, CreateLazyTcpClient).Value;
+			var tcpClient = new TcpClient ();
 
 			await tcpClient.ConnectAsync (host, port);
 
@@ -73,13 +67,10 @@ namespace SharpRpc.ClientSide
 				status = (ResponseStatus)BitConverter.ToInt32(statusByte,0);
 			}				
 
-			return new Response (status, result);
-		}
+			tcpClient.Client.Close ();
 
-		private static Lazy<TcpClient> CreateLazyTcpClient(int timeoutMilliseconds)
-		{
-			return new Lazy<TcpClient>(() => {return new TcpClient();});
-		} 
+			return new Response (status, result);
+		}			
 			
 	}
 }
