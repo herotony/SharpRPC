@@ -7,6 +7,40 @@ namespace SharpRpc.TestCommon
 {
 	public class ComplexService :IComplexService
 	{
+		public JsonStruct GetXmlOrJsonString(string protocol,string sid,string pid,double lon,double lat,string[] paramStr){
+
+			Console.WriteLine (string.Format ("protocol:{0} sid:{1} pid:{2} lon:{3} lat:{4}",protocol,sid,pid,lon,lat));
+
+			if (paramStr != null && paramStr.Length > 0)
+				foreach (string value in paramStr)
+					Console.WriteLine ("param :{0}", value);
+
+			JsonStruct[] t = new JsonStruct[2];
+
+			t [0] = new JsonStruct ();
+
+			t [0].Name = "name1";
+			t [0].Index = 1;
+			t [0].Date = DateTime.Now.AddDays (1);
+			t [0].Price = 100;
+			t[0].JsonStr =new string[]{"{json:1}","abc"};
+			t[0].Reminder="what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1";
+
+
+			t [1] = new JsonStruct ();
+
+			t [1].Name = "name2";
+			t [1].Index = 2;
+			t [1].Date = DateTime.Now.AddDays (2);
+			t [1].Price = 1000;
+			t[1].JsonStr= new string[]{"{json2:2}","bdf"};
+			t[1].Reminder="what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试1what is here 测试12";
+
+
+
+			return t[0];
+		}
+
 		public byte[] GetStudentList(byte[] input){
 
 			List<Student> list = new List<Student> ();

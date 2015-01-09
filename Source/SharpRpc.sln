@@ -29,6 +29,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseConsole.Tests", "Parse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parse.Rpc.StepByStep", "Parse.Rpc.StepByStep\Parse.Rpc.StepByStep.csproj", "{D9D38405-33B2-4E61-9CB3-389091010037}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpServer", "HttpServer\HttpServer.csproj", "{C48BB0B0-81E5-4A1B-8085-354C3BF93E19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHttpFunction", "IHttpFunction\IHttpFunction.csproj", "{1DA5C09E-C58D-4F54-B4BA-27A4D250BE0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpRealBizServer", "HttpRealBizServer\HttpRealBizServer.csproj", "{ACC9A065-C4E2-4462-90A8-06457B107E73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +66,12 @@ Global
 		{190CA4AC-7A11-4923-A1DB-6CDA845B50C5}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{190CA4AC-7A11-4923-A1DB-6CDA845B50C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{190CA4AC-7A11-4923-A1DB-6CDA845B50C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DA5C09E-C58D-4F54-B4BA-27A4D250BE0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA5C09E-C58D-4F54-B4BA-27A4D250BE0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA5C09E-C58D-4F54-B4BA-27A4D250BE0C}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA5C09E-C58D-4F54-B4BA-27A4D250BE0C}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{1DA5C09E-C58D-4F54-B4BA-27A4D250BE0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA5C09E-C58D-4F54-B4BA-27A4D250BE0C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{23DE6551-EF92-4053-9A47-54B0F5711E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{23DE6551-EF92-4053-9A47-54B0F5711E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23DE6551-EF92-4053-9A47-54B0F5711E86}.Default|Any CPU.ActiveCfg = Debug|Any CPU
@@ -103,12 +115,24 @@ Global
 		{A9D672A8-2880-48C2-AB22-074BD747D5B7}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{A9D672A8-2880-48C2-AB22-074BD747D5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9D672A8-2880-48C2-AB22-074BD747D5B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACC9A065-C4E2-4462-90A8-06457B107E73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACC9A065-C4E2-4462-90A8-06457B107E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACC9A065-C4E2-4462-90A8-06457B107E73}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACC9A065-C4E2-4462-90A8-06457B107E73}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{ACC9A065-C4E2-4462-90A8-06457B107E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACC9A065-C4E2-4462-90A8-06457B107E73}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Default|Any CPU.ActiveCfg = Debug|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B705F2F9-B44C-4612-8A1C-111761900FBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C48BB0B0-81E5-4A1B-8085-354C3BF93E19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C48BB0B0-81E5-4A1B-8085-354C3BF93E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C48BB0B0-81E5-4A1B-8085-354C3BF93E19}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{C48BB0B0-81E5-4A1B-8085-354C3BF93E19}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{C48BB0B0-81E5-4A1B-8085-354C3BF93E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C48BB0B0-81E5-4A1B-8085-354C3BF93E19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D9D38405-33B2-4E61-9CB3-389091010037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D9D38405-33B2-4E61-9CB3-389091010037}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9D38405-33B2-4E61-9CB3-389091010037}.Default|Any CPU.ActiveCfg = Debug|Any CPU
@@ -123,7 +147,7 @@ Global
 		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = SharpRpc.TestClient\SharpRpc.TestClient.csproj
+		StartupItem = HttpServer\HttpServer.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -24,5 +24,17 @@ namespace Sharp.Rpc.CommonObject
 			return string.Format ("[Student: Name={0}, Age={1}, Score={2},Male={3}]", Name, Age, Score,Male);
 		}
 	}
+
+	public struct JsonStruct{
+
+		public string Name;
+		public int Index;
+		public DateTime Date;
+		public decimal Price;
+		public string Reminder;
+		public string[] JsonStr;
+	}
+
+
 }
 

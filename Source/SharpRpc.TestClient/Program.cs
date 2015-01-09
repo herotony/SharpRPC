@@ -49,11 +49,46 @@ namespace SharpRpc.TestClient
 
 			try{
 
-				logProgram.Info("start");			
+				Stopwatch sw = new Stopwatch();
 
-					TestComplex ();
+
+				logProgram.Info("start");		
+
+				sw.Start();
+
+				int count =1000;
+
+				Task[] tsk = new Task[count];
+
+				StringBuilder sb = new StringBuilder();
+
+				for(int i=0;i<count;i++){
+
+					tsk[i] = Task.Factory.StartNew(()=>{
+
+						//string resp = SimpHttp.Request("http://127.0.0.1:8080/start.aspx","");
+						string resp = SimpHttp.Request("http://10.9.60.63:9090/start.aspx","");
+
+						string info = string.Format("th:{0} : {1}",Task.CurrentId,resp);
+
+						sb.AppendFormat("\r\n{0}",info);
+						Console.WriteLine(info);
+
+
+
+					});						
+				}
+
+					//TestComplex ();
+				//new TestComplexIII().Run();
 
 				logProgram.Info("end");
+
+				Task.WaitAll(tsk);
+
+				Console.WriteLine(string.Format("total:{0} ms",sw.ElapsedMilliseconds));
+				logProgram.Info(sb.ToString());
+
 
 			}catch(Exception e){
 

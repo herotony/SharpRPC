@@ -1,0 +1,2 @@
+tcp://localhost:7001
+SharpRpc.TestCommon 	SharpRpc.TestCommon.IComplexService 		SharpRpc.TestCommon.ComplexService

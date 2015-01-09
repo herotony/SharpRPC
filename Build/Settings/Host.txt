@@ -1,2 +1,2 @@
-http://localhost:7001
-SharpRpc.TestCommon 	SharpRpc.TestCommon.IComplexService 		SharpRpc.TestCommon.ComplexService
+tcp://localhost:7001
+HttpRealBizServer	HttpRealBizServer.IProcessHttpRequest		HttpRealBizServer.ProcessHttpRequest
