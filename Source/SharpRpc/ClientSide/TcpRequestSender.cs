@@ -70,7 +70,13 @@ namespace SharpRpc.ClientSide
 			tcpClient.Client.Close ();
 
 			return new Response (status, result);
-		}			
+		}	
+
+		public async Task<Response> SendAsync1(string host, int port, Request request, int? timeoutMilliseconds){
+
+
+			return null;
+		}
 			
 	}
 }

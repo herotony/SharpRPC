@@ -62,45 +62,65 @@ namespace SharpRpc.ServerSide
 		private  async void AcceptClient(){
 
 			var tcpClient = await listener.AcceptTcpClientAsync ();
+		    Run (tcpClient);
+		}
 
+		private async void Run(TcpClient tcpClient){
+		
 			using (var networkSteam = tcpClient.GetStream ()) {
 
-				byte[] buff = new byte[1024 * 1024];
-				byte[] statusByte = new byte[0];
-				byte[] responseByte = new byte[0];
+				//常连接处理...
+				//while (true) {
+				
+//					if (!tcpClient.Connected) {
+//
+//						break;
+//					}
 
-				var byteCount = await networkSteam.ReadAsync (buff, 0, buff.Length);
+					//if (tcpClient.Available.Equals(0)) {
 
-				Request request = null;
+//						Thread.Sleep (1);
+//						continue;
+						//break;
+					//}
 
-				if (!TryDecodeRequest (buff,byteCount, out request)) {
+					byte[] buff = new byte[1024 * 1024];
+					byte[] statusByte = new byte[0];
+					byte[] responseByte = new byte[0];
 
-					logger.Error (string.Format("Failed to decode request! on {0}", tcpClient.Client.RemoteEndPoint));	
+					var byteCount = await  networkSteam.ReadAsync(buff, 0, buff.Length);								
 
-					statusByte = BitConverter.GetBytes((int)ResponseStatus.BadRequest);
-					responseByte = new byte[sizeof(int)];
+					Request request = null;
 
-					Array.Copy (statusByte, 0, responseByte, 0, statusByte.Length);
+					if (!TryDecodeRequest (buff,byteCount, out request)) {
 
-					await networkSteam.WriteAsync (responseByte, 0, responseByte.Length);
+						logger.Error (string.Format("Failed to decode request! on {0}", tcpClient.Client.RemoteEndPoint));	
 
-				} else {
+						statusByte = BitConverter.GetBytes((int)ResponseStatus.BadRequest);
+						responseByte = new byte[sizeof(int)];
 
-					//处理请求
-					var response = await requestProcessor.Process(request);
+						Array.Copy (statusByte, 0, responseByte, 0, statusByte.Length);
 
-					statusByte = BitConverter.GetBytes((int)response.Status);
-					responseByte = new byte[sizeof(int) + response.Data.Length];
+						await networkSteam.WriteAsync(responseByte, 0, responseByte.Length);
 
-					Array.Copy (statusByte, 0, responseByte, 0, statusByte.Length);
-					Array.Copy (response.Data, 0, responseByte, sizeof(int), response.Data.Length);
+					} else {
 
-					await networkSteam.WriteAsync (responseByte, 0, responseByte.Length);
-				}
+						//处理请求
+						var response = await requestProcessor.Process(request);
 
+						statusByte = BitConverter.GetBytes((int)response.Status);
+						responseByte = new byte[sizeof(int) + response.Data.Length];
+
+						Array.Copy (statusByte, 0, responseByte, 0, statusByte.Length);
+						Array.Copy (response.Data, 0, responseByte, sizeof(int), response.Data.Length);
+
+						await networkSteam.WriteAsync(responseByte, 0, responseByte.Length);
+					}
+				//}					
 			}	
 
-			tcpClient.Close ();
+			//先尝试不主动Close!，客户端控制Keep-Alive,其实服务端是无法控制Keep-Alive，只能确保不主动关闭连接，因其实被动接收连接!!!
+			//tcpClient.Close ();
 		}
 			
 
