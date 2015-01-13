@@ -58,7 +58,7 @@ namespace SharpRpc.ClientSide.Pool
 			} while (Interlocked.CompareExchange(ref _currentCount, newValue, oldValue) != oldValue);
 			//oldValue如果与_currentCount相等，则用newValue替代_currentCount，而该方法固定返回_currentCount的原始值(如果newValue替换，则是替换前的值)
 			//多线程情况下，不断修正currentCount，确保currentCount被正确修正!即确保_currentCount此间没被其他线程修改，若修改这重新进行一次修正
-			//currentCount减一操作得以正确赋值，表示被占用了一个名额ji
+			//currentCount减一操作得以正确赋值，表示被占用了一个名额
 
 			return true;
 		}
