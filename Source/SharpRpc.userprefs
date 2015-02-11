@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="HttpServer\HttpServer.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="ChromeHTML" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\ClientSide\Pool\PoolEx.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="ChromeHTML.RHTVL3XY4EBBYE5HB44ZNDAJXA" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\ServerSide\TcpRequestReceiver2.cs">
     <Files>
-      <File FileName="SharpRpc\ClientSide\Pool\PoolEx.cs" Line="2" Column="2" />
+      <File FileName="SharpRpc\ServerSide\TcpRequestReceiver.cs" Line="46" Column="46" />
+      <File FileName="SharpRpc\ServerSide\TcpRequestReceiver2.cs" Line="17" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

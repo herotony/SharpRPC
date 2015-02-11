@@ -33,9 +33,6 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Web.Services" />
-    <Reference Include="SharpRpc">
-      <HintPath>..\..\Build\Release\SharpRpc.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -65,6 +62,10 @@
     <ProjectReference Include="..\IHttpFunction\IHttpFunction.csproj">
       <Project>{1DA5C09E-C58D-4F54-B4BA-27A4D250BE0C}</Project>
       <Name>IHttpFunction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpRpc\SharpRpc.csproj">
+      <Project>{2C63C96E-39CB-4812-A105-866BBEA4D6B3}</Project>
+      <Name>SharpRpc</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

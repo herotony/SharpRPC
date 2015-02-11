@@ -37,6 +37,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="AsyncSocketLibrary">
+      <HintPath>..\..\referencebinbyherotony\AsyncSocketLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientSide\IOutgoingRequestProcessor.cs" />
@@ -196,13 +199,12 @@
     <Compile Include="ClientSide\Pool\Pool.cs" />
     <Compile Include="ClientSide\Pool\LockFreeSemaphore.cs" />
     <Compile Include="ClientSide\Pool\PoolEx.cs" />
-    <Compile Include="ClientSide\TcpRequestSenderBaseOnSocket.cs" />
-    <Compile Include="ServerSide\TcpRequestReceiverBaseOnSocket.cs" />
     <Compile Include="ServerSide\TcpClientArgsPool.cs" />
     <Compile Include="ServerSide\SocketServer\AsyncClientArgs.cs" />
     <Compile Include="ServerSide\SocketServer\BaseSocketServer.cs" />
     <Compile Include="ServerSide\SocketServer\ILogicServer.cs" />
     <Compile Include="ServerSide\SocketServer\ISocketServer.cs" />
+    <Compile Include="ServerSide\TcpRequestReceiver2.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -216,5 +218,8 @@
   <ItemGroup>
     <Folder Include="ClientSide\Pool\" />
     <Folder Include="ServerSide\SocketServer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="socketsetting.txt" />
   </ItemGroup>
 </Project>
