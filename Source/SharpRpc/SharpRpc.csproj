@@ -40,6 +40,9 @@
     <Reference Include="AsyncSocketLibrary">
       <HintPath>..\..\referencebinbyherotony\AsyncSocketLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\RefrenceBin\log4net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientSide\IOutgoingRequestProcessor.cs" />
@@ -205,6 +208,7 @@
     <Compile Include="ServerSide\SocketServer\ILogicServer.cs" />
     <Compile Include="ServerSide\SocketServer\ISocketServer.cs" />
     <Compile Include="ServerSide\TcpRequestReceiver2.cs" />
+    <Compile Include="ClientSide\TcpRequestSender2.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -32,7 +32,7 @@ namespace SharpRpc.ServerSide
         private readonly IIncomingRequestProcessor requestProcessor;
         private readonly ILogger logger;
         private HttpRequestReceiver httpReceiver;
-		private TcpRequestReceiver tcpReceiver;
+		private TcpRequestReceiver2 tcpReceiver;
 
         public RequestReceiverContainer(IIncomingRequestProcessor requestProcessor, ILogger logger)
         {
@@ -45,7 +45,7 @@ namespace SharpRpc.ServerSide
             switch (protocol)
             {
                 case "http": return httpReceiver ?? (httpReceiver = new HttpRequestReceiver(requestProcessor, logger));
-				case "tcp":return tcpReceiver ?? (tcpReceiver = new TcpRequestReceiver (requestProcessor, logger));
+				case "tcp":return tcpReceiver ?? (tcpReceiver = new TcpRequestReceiver2 (requestProcessor, logger));
                 default: throw new NotSupportedException(string.Format("Protocol '{0}' is not supported", protocol));
             }
         }

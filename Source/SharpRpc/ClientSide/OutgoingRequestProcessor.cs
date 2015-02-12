@@ -83,7 +83,8 @@ namespace SharpRpc.ClientSide
                 try
                 {
                     int? networkTimeout = hasNetworkTimeout ? timeoutSettings.MaxMilliseconds - (DateTime.Now - startTime).Milliseconds : (int?)null;
-                    response = await sender.SendAsync(endPoint.Host, endPoint.Port, request, networkTimeout);
+                    //response = await sender.SendAsync(endPoint.Host, endPoint.Port, request, networkTimeout);
+					response = sender.Send(endPoint.Host,endPoint.Port,request,networkTimeout);
                 }
                 catch (TimeoutException ex)
                 {

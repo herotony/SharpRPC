@@ -9,10 +9,14 @@ using SharpRpc.Logs;
 using AsyncSocketLibrary.Common;
 using AsyncSocketLibrary.Common.Server;
 
+using log4net;
+
+[assembly:log4net.Config.XmlConfigurator(Watch=true)]
 namespace SharpRpc.ServerSide
 {
 	public class TcpRequestReceiver2:IRequestReceiver
 	{
+		private ILog log = log4net.LogManager.GetLogger (typeof(TcpRequestReceiver2));
 		private readonly IIncomingRequestProcessor requestProcessor;
 		private readonly ILogger logger;
 		private SocketListener listener;
@@ -34,6 +38,7 @@ namespace SharpRpc.ServerSide
 			}
 
 			Task<Response> task = requestProcessor.Process (request);
+			task.Wait ();
 			Response response = task.Result;
 
 			byte[] statusByte = BitConverter.GetBytes ((int)response.Status);
@@ -65,7 +70,15 @@ namespace SharpRpc.ServerSide
 		private bool TryDecodeRequest(byte[] input,out Request request){
 
 			int dataLen = BitConverter.ToInt32 (input, 0);
+
 			string urlStr = Encoding.UTF8.GetString (input, 4, dataLen);
+
+			if (string.IsNullOrEmpty (urlStr)) {
+
+				request = null;
+				return false;
+			}
+
 			Uri uri = new Uri (urlStr);
 
 			ServicePath servicePath;
@@ -77,8 +90,8 @@ namespace SharpRpc.ServerSide
 
 			string scope = string.IsNullOrEmpty(uri.Query)||uri.Query.Length<8?"":uri.Query.Substring(7);
 
-			byte[] data = new byte[input.Length - dataLen];
-			Array.Copy (input, dataLen, data, 0, input.Length - dataLen);
+			byte[] data = new byte[input.Length - dataLen-4];
+			Array.Copy (input, dataLen + 4, data, 0, input.Length - dataLen - 4);
 			request = new Request (servicePath, scope, data);
 			return true;
 		}
