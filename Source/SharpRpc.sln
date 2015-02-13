@@ -78,9 +78,9 @@ Global
 		{23DE6551-EF92-4053-9A47-54B0F5711E86}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{23DE6551-EF92-4053-9A47-54B0F5711E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23DE6551-EF92-4053-9A47-54B0F5711E86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Debug|Any CPU.Deploy.0 = Release|Any CPU
 		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Default|Any CPU.ActiveCfg = Debug|Any CPU
 		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{2C63C96E-39CB-4812-A105-866BBEA4D6B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -145,9 +145,6 @@ Global
 		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E43A74EE-F65A-4AD7-B690-E08F9BE74AC4}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = HttpServer\HttpServer.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="HttpServer\HttpServer.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="ChromeHTML.RHTVL3XY4EBBYE5HB44ZNDAJXA" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\ServerSide\TcpRequestReceiver2.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SharpRpc\ClientSide\TcpRequestSender2.cs">
     <Files>
-      <File FileName="SharpRpc\ServerSide\TcpRequestReceiver2.cs" Line="27" Column="27" />
+      <File FileName="SharpRpc\ClientSide\OutgoingRequestProcessor.cs" Line="30" Column="30" />
+      <File FileName="SharpRpc\ClientSide\TcpRequestSender2.cs" Line="88" Column="88" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -15,7 +16,6 @@
       <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="105" column="1" />
       <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole.Tests\Reflection\TestReflectionTypeExtensions.cs" line="103" column="1" />
       <Breakpoint file="D:\HeroTonyGitHub\SharpRPC\Source\ParseConsole\Program.cs" line="44" column="1" />
-      <Breakpoint file="D:\GitHubData\SharpRPC\Source\SharpRpc\ClientSide\OutgoingRequestProcessor.cs" line="86" column="45" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

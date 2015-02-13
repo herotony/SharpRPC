@@ -37,7 +37,10 @@ namespace SharpRpc.ClientSide
         public HttpRequestSender()
         {
             httpClients = new ConcurrentDictionary<int, Lazy<HttpClient>>();
+			Protocol = "http";
         }
+
+		public string Protocol{ get; private set;}
 
         private const int NoTimeout = -1;
 
@@ -54,6 +57,11 @@ namespace SharpRpc.ClientSide
 
             return new Response((ResponseStatus)httpResponseMessage.StatusCode, responseData);
         }
+
+		public Response Send(string host, int port, Request request, int? timeoutMilliseconds){
+
+			return null;
+		}
 
         private static Lazy<HttpClient> CreateLazyHttpClient(int timeoutMilliseconds)
         {

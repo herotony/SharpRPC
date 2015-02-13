@@ -19,49 +19,6 @@ namespace ConsoleApplication2
 
 		static void Main(string[] args)
 		{
-//			tcpListener.Start();
-//
-//			Accept();
-//			ConnectAsTcpClient();
-//			Console.WriteLine ("blabla");
-//			string again = Console.ReadLine();
-//
-//			while (again.Equals ("try")) {
-//
-//				for (int i = 0; i < 3; i++) {
-//
-//					ConnectAsTcpClient ();
-//				}
-//
-//
-//				again = Console.ReadLine ();
-//			}
-//
-//			Console.ReadLine ();
-			int valuenumber = 200;
-			byte[] t = BitConverter.GetBytes (valuenumber);
-
-			ILogger log = new ConsoleLogger ();
-
-			TcpRequestReceiver receiver = new TcpRequestReceiver (null, log);
-
-			receiver.Start (10026, 1);
-
-			TcpRequestSender sender = new TcpRequestSender ();
-
-			ServicePath sp = new ServicePath ("servicename","methodname");
-
-			Request req = new Request (sp,"add",new byte[10]);
-
-			Task<Response> tk = sender.SendAsync ("127.0.0.1", 10026, req, 10);
-
-			tk.Wait (1000);
-
-			if (tk.IsCompleted) {
-
-				Console.WriteLine ("finish");
-
-			}
 
 			Console.ReadKey ();
 		}

@@ -195,7 +195,6 @@
     <Compile Include="Utility\ScopeKey.cs" />
     <Compile Include="Utility\StreamExtensions.cs" />
     <Compile Include="Utility\ThreadGuard.cs" />
-    <Compile Include="ClientSide\TcpRequestSender.cs" />
     <Compile Include="ServerSide\TcpRequestReceiver.cs" />
     <Compile Include="ClientSide\Pool\IPoolSlotHolder.cs" />
     <Compile Include="ClientSide\Pool\PoolSlot.cs" />

@@ -28,14 +28,14 @@ namespace SharpRpc.ClientSide
 {
     public class RequestSenderContainer : IRequestSenderContainer
     {
-        //private HttpRequestSender httpSender;
+        private HttpRequestSender httpSender;
 		private TcpRequestSender2 tcpSender;
 
-        public IRequestSenderII GetSender(string protocol)
+        public IRequestSender GetSender(string protocol)
         {
             switch (protocol)
             {
-                //case "http": return httpSender ?? (httpSender = new HttpRequestSender());
+                case "http": return httpSender ?? (httpSender = new HttpRequestSender());
 				case "tcp":return tcpSender ?? (tcpSender = new TcpRequestSender2 ());
                 default: throw new NotSupportedException(string.Format("Protocol '{0}' is not supported", protocol));
             }

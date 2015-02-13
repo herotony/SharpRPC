@@ -26,6 +26,6 @@ namespace SharpRpc.ClientSide
 {
     public interface IRequestSenderContainer
     {
-        IRequestSenderII GetSender(string protocol);
+        IRequestSender GetSender(string protocol);
     }
 }

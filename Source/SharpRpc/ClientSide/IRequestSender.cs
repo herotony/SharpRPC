@@ -29,13 +29,8 @@ namespace SharpRpc.ClientSide
 {
     public interface IRequestSender
     {
-        //string Protocol { get; }
-        //Response Send(string host, int port, Request request, int? timeoutMilliseconds);
+        string Protocol { get; }
+        Response Send(string host, int port, Request request, int? timeoutMilliseconds);
         Task<Response> SendAsync(string host, int port, Request request, int? timeoutMilliseconds);
-    }
-
-	public interface IRequestSenderII{
-
-		Response Send(string host, int port, Request request, int? timeoutMilliseconds);
-	}
+    }		
 }

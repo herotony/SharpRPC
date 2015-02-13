@@ -47,9 +47,71 @@ namespace SharpRpc.ClientSide
 
         public byte[] Process(Type serviceInterface, string pathSeparatedBySlashes, string serviceScope, byte[] data, TimeoutSettings timeoutSettings)
         {
+
+			ServicePath path;
+			if (!ServicePath.TryParse(pathSeparatedBySlashes, out path))
+				throw new InvalidOperationException(string.Format("'{0}' is not a valid service path", pathSeparatedBySlashes));
+
+			var serviceName = serviceInterface.GetServiceName();
+			var endPoint = topology.GetEndPoint(serviceName, serviceScope);
+			var sender = requestSenderContainer.GetSender(endPoint.Protocol);
+		
             try
             {
-                return ProcessAsync(serviceInterface, pathSeparatedBySlashes, serviceScope, data, timeoutSettings).Result;
+				if(endPoint.Protocol.Equals("http"))
+                	return ProcessAsync(serviceInterface, pathSeparatedBySlashes, serviceScope, data, timeoutSettings).Result;
+				else if(endPoint.Protocol.Equals("tcp")){
+
+					var request = new Request(path, serviceScope, data);
+					timeoutSettings = timeoutSettings ?? TimeoutSettings.NoTimeout;
+
+					bool hasNetworkTimeout = timeoutSettings.MaxMilliseconds != -1 && timeoutSettings.MaxMilliseconds != 0 && timeoutSettings.MaxMilliseconds != int.MaxValue;
+					var startTime = DateTime.Now;
+					int remainingTriesMinusOne = timeoutSettings.NotReadyRetryCount;
+
+					Response response;
+					try{
+
+						 response = sender.Send(endPoint.Host,endPoint.Port,request,null);
+					}
+					catch (TimeoutException ex)
+					{
+						throw new ServiceTimeoutException(request, timeoutSettings.MaxMilliseconds, ex);
+					}
+					catch (Exception ex)
+					{
+						throw new ServiceNetworkException(string.Format("Sending a '{0}' request to {1} failed for {2}", pathSeparatedBySlashes, endPoint,ex.Message), ex);
+					}
+
+					switch (response.Status)
+					{
+					case ResponseStatus.Ok:
+						return response.Data;					
+					case ResponseStatus.BadRequest:
+						throw new ServiceTopologyException(string.Format("'{0}' seems to be a bad request for {1}",
+							pathSeparatedBySlashes, endPoint));
+					case ResponseStatus.ServiceNotFound:
+						throw new ServiceTopologyException(string.Format("'{0}' service was not present at {1}",
+							serviceName, endPoint));
+					case ResponseStatus.Exception:
+						{
+							Exception remoteException;
+							if (exceptionCodec.TryDecodeSingle(response.Data, out remoteException))
+								throw remoteException;
+							throw new ServiceNetworkException(
+								string.Format("'{0}' request caused {1} to return an unknown exception",
+									pathSeparatedBySlashes, endPoint));
+						}
+					case ResponseStatus.InternalServerError:
+						throw new Exception(string.Format("'{0}' request caused {1} to encounter an internal server error",
+							pathSeparatedBySlashes, endPoint));
+					default:
+						throw new Exception(string.Format("'{0}' request caused {1} to return an undefined status '{2}'",
+							pathSeparatedBySlashes, endPoint, (int)response.Status));
+					}
+
+				}else
+					return null;
             }
             catch (AggregateException ex)
             {
@@ -83,8 +145,8 @@ namespace SharpRpc.ClientSide
                 try
                 {
                     int? networkTimeout = hasNetworkTimeout ? timeoutSettings.MaxMilliseconds - (DateTime.Now - startTime).Milliseconds : (int?)null;
-                    //response = await sender.SendAsync(endPoint.Host, endPoint.Port, request, networkTimeout);
-					response = sender.Send(endPoint.Host,endPoint.Port,request,networkTimeout);
+                    response = await sender.SendAsync(endPoint.Host, endPoint.Port, request, networkTimeout);
+					//response = sender.Send(endPoint.Host,endPoint.Port,request,networkTimeout);
                 }
                 catch (TimeoutException ex)
                 {

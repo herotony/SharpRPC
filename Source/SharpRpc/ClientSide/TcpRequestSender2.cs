@@ -7,8 +7,14 @@ using AsyncSocketLibrary.Common.Client;
 
 namespace SharpRpc.ClientSide
 {
-	public class TcpRequestSender2 : IRequestSenderII
+	public class TcpRequestSender2 : IRequestSender
 	{
+		public TcpRequestSender2(){
+
+			this.Protocol = "tcp";
+		}
+		public string Protocol{ get; private set;}
+
 		public Response Send(string host, int port, Request request, int? timeoutMilliseconds){
 
 			var uri = string.Format("tcp://{0}:{1}/{2}?scope={3}", host, port, request.Path, request.ServiceScope); 
@@ -36,6 +42,11 @@ namespace SharpRpc.ClientSide
 			Array.Copy (result, 8, data, 0, result.Length - 8);
 
 			return new Response(responseStatusValue,data);
+		}
+
+		public Task<Response> SendAsync(string host, int port, Request request, int? timeoutMilliseconds){
+
+			return null;
 		}
 	}
 }
